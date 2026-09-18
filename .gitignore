@@ -1,3 +1,21 @@
-node_modules/
+# NUNCA versionar a base bruta da Ficha SG (tem CPF, CNS, nome, nome da
+# mãe, endereço, telefone) - este repositório é PÚBLICO no GitHub Pages.
+*.dbf
+*.DBF
+/dados-brutos/
+/dados/raw/
+
+# Arquivos de sessão R
+.Rhistory
+.Rdata
+.Ruserdata
+.Rproj.user/
+
+# Arquivos de sistema
 .DS_Store
-*.log
+Thumbs.db
+
+# Cache de renderização do Quarto (docs/ com o HTML final É versionado
+# de propósito - é o que o GitHub Pages serve; só o cache intermediário
+# fica de fora)
+/.quarto/

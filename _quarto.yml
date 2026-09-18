@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: docs
+
+# O nome do repositório é "vigilancia-sentinela"
+# (https://github.com/valentim1979/vigilancia-sentinela).
+website:
+  title: "Vigilância Sentinela de SG — 15ª RS"
+  description: "Indicadores de desempenho da vigilância sentinela de Síndrome Gripal (NT nº 9/2025-2026, SESA-PR), unidades sentinelas da 15ª Regional de Saúde de Maringá/PR."
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Início
+      - href: indicadores.qmd
+        text: Indicadores (NT9)
+      - href: circulacao-viral.qmd
+        text: Circulação viral
+    right:
+      - icon: github
+        href: https://github.com/valentim1979/vigilancia-sentinela
+        aria-label: GitHub
+  page-footer:
+    left: "15ª Regional de Saúde de Maringá — SCVGE/DIVEA"
+    right: "Fonte: Ficha SG (SIVEP-Gripe). Atualização manual — ver data no rodapé de cada gráfico."
+
+format:
+  html:
+    theme:
+      light: cosmo
+    css: styles.css
+    toc: false
+    page-layout: full
+
+execute:
+  echo: false
+  warning: false

@@ -1,0 +1,121 @@
+---
+title: "Indicadores da NT nº 9/2025-2026"
+---
+
+```{r}
+#| label: setup
+library(dplyr)
+library(readr)
+library(gt)
+
+ler_indicador <- function(arquivo) {
+  caminho <- file.path("dados", arquivo)
+  if (!file.exists(caminho)) return(NULL)
+  readr::read_csv2(caminho, show_col_types = FALSE)
+}
+
+tabela_indicador <- function(df, titulo = NULL) {
+  if (is.null(df)) {
+    return(gt::gt(data.frame(Aviso = "Dado ainda não gerado - rode o script de indicadores.")))
+  }
+  gt::gt(df) |> gt::tab_header(title = titulo) |> gt::opt_row_striping()
+}
+```
+
+Cada indicador abaixo mostra o resultado mais recente por unidade sentinela e a série semanal, quando aplicável. A classificação de desempenho segue as faixas do Caderno de Análise: **Silencioso** (0%) · **Baixíssimo Desempenho** (1-20%) · **Baixo Desempenho** (21-80%) · **Meta Atingida** (81-100%).
+
+::: {.aviso-dado}
+Os Indicadores **1** e **10** não aparecem aqui: dependem da Ficha de Agregado Semanal do Sivep-Gripe (total de atendimentos gerais), que não está nesta base de dados individual. Consulte o relatório pronto do próprio SIVEP-Gripe (menu Relatórios > Indicadores) para esses dois.
+:::
+
+::: {.panel-tabset}
+
+## Processo
+
+### Indicadores 2, 3 e 4 — coleta de amostras semanais
+
+Base comum aos três indicadores: nº de amostras de SG coletadas por semana epidemiológica, por unidade sentinela.
+
+![](img/amostras_semanais.png)
+
+::: {.indicador-card}
+**Indicador 2** — % de semanas epidemiológicas com coleta de amostras de SG.
+
+```{r}
+tabela_indicador(ler_indicador("indicador_02.csv"))
+```
+:::
+
+::: {.indicador-card}
+**Indicador 3** — Média de amostras de SG coletadas por semana. Não é percentual; classificação: Silencioso (0) · Abaixo do recomendado (1-3) · Dentro do recomendado (4-20) · Acima do recomendado (21+). Essa faixa é a nacional (NT 13/2023-CGVDI) — mais frouxa que a meta específica da NT9/PR de 5 amostras/semana.
+
+```{r}
+tabela_indicador(ler_indicador("indicador_03.csv"))
+```
+:::
+
+::: {.indicador-card}
+**Indicador 4** — Homogeneidade de envio de amostras: média entre o Indicador 2 e o % de semanas com 4 a 20 amostras.
+
+```{r}
+tabela_indicador(ler_indicador("indicador_04.csv"))
+```
+:::
+
+## Qualidade
+
+::: {.indicador-card}
+**Indicador 5** — % de registros que atendem à definição de caso de SG (definição vigente da NT9: infecção respiratória, início ≤10 dias, ≥2 sintomas com ≥1 respiratório).
+
+![](img/indicador_05_semanal.png)
+:::
+
+::: {.indicador-card}
+**Indicador 6** — Média do % de preenchimento de Raça/Cor, Escolaridade e Uso de Antiviral.
+
+![](img/indicador_06_semanal.png)
+:::
+
+::: {.indicador-card}
+**Indicador 7** — % de amostras processadas por RT-PCR. Valores abaixo de 95% já indicam desperdício de amostra, segundo o Caderno de Análise (meta genérica é 80%).
+
+![](img/indicador_07_semanal.png)
+:::
+
+::: {.indicador-card}
+**Indicador 8** — % de amostras com resultado de RT-PCR em até 10 dias da coleta.
+
+![](img/indicador_08_semanal.png)
+:::
+
+::: {.indicador-card}
+**Indicador 9** — % de casos encerrados em até 60 dias da notificação.
+
+::: {.aviso-dado}
+As últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um caso notificado perto do fim do período analisado ainda não teve tempo de completar os 60 dias, então conta como "não encerrado" mesmo que a unidade feche o caso normalmente depois (censura à direita). Ao ler este gráfico, desconsidere a queda nas semanas mais recentes.
+:::
+
+![](img/indicador_09_semanal.png)
+:::
+
+## Resultado
+
+::: {.indicador-card}
+**Indicador 11** — Proporção de positividade dos vírus testados (RT-PCR ou Imunofluorescência).
+
+![](img/indicador_11_semanal.png)
+:::
+
+::: {.indicador-card}
+**Indicadores 12 e 13** — circulação viral por semana epidemiológica e por faixa etária. Ver a página **[Circulação viral](circulacao-viral.qmd)** para os gráficos completos, incluindo a versão só com vírus efetivamente identificados (sem "SG não especificado").
+:::
+
+## Indicador Estadual
+
+::: {.indicador-card}
+**Indicador 14** — % de registros com o campo "contato direto com aves, suínos ou outro animal" preenchido. Único indicador com fórmula e classificação totalmente descritas na própria NT9 (Anexo 1).
+
+![](img/indicador_14_semanal.png)
+:::
+
+:::
