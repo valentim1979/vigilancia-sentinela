@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "circulacao-viral.html",
+    "href": "circulacao-viral.html",
+    "title": "Circulação viral",
+    "section": "",
+    "text": "Esta página traz a distribuição dos vírus respiratórios circulantes, em duas versões: a classificação oficial dos Indicadores 12 e 13 da NT9 (que inclui casos ainda não identificados), e uma versão complementar só com os vírus efetivamente encontrados, útil para acompanhar a variação semanal sem a categoria “SG não especificado” dominando a leitura.\n\nIndicador 12 — por semana (oficial)Indicador 13 — por faixa etária (oficial)Só vírus identificados — por semanaSó vírus identificados — por faixa etária\n\n\nClassificação final do caso (CLASSI_FIN), incluindo “SG não especificado”.\n\n\n\n\n\n\nAbre a categoria “Outro vírus respiratório” nos vírus específicos (VSR, Parainfluenza, Adenovírus, Metapneumovírus, Bocavírus, Rinovírus), usando os campos de RT-PCR e Imunofluorescência da ficha. Exclui “SG não especificado” e “outro agente etiológico” (não necessariamente viral). Um caso pode aparecer em mais de um vírus se houver codetecção."
+  },
+  {
+    "objectID": "indicadores.html",
+    "href": "indicadores.html",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "",
+    "text": "Cada indicador abaixo mostra o resultado mais recente por unidade sentinela e a série semanal, quando aplicável. A classificação de desempenho segue as faixas do Caderno de Análise: Silencioso (0%) · Baixíssimo Desempenho (1-20%) · Baixo Desempenho (21-80%) · Meta Atingida (81-100%).\n\nOs Indicadores 1 e 10 não aparecem aqui: dependem da Ficha de Agregado Semanal do Sivep-Gripe (total de atendimentos gerais), que não está nesta base de dados individual. Consulte o relatório pronto do próprio SIVEP-Gripe (menu Relatórios &gt; Indicadores) para esses dois.\n\n\nProcessoQualidadeResultadoIndicador Estadual\n\n\n\nIndicadores 2, 3 e 4 — coleta de amostras semanais\nBase comum aos três indicadores: nº de amostras de SG coletadas por semana epidemiológica, por unidade sentinela.\n\n\nIndicador 2 — % de semanas epidemiológicas com coleta de amostras de SG.\n\n\n\n\n\n\n\n\nCOD_UNID\nse_com_coleta\nse_periodo\nindicador_2_pct\nclassificacao\n\n\n\n\n6986609\n36\n38\n94.7\nMeta Atingida\n\n\n7023049\n37\n38\n97.4\nMeta Atingida\n\n\n\n\n\n\n\n\n\nIndicador 3 — Média de amostras de SG coletadas por semana. Não é percentual; classificação: Silencioso (0) · Abaixo do recomendado (1-3) · Dentro do recomendado (4-20) · Acima do recomendado (21+). Essa faixa é a nacional (NT 13/2023-CGVDI) — mais frouxa que a meta específica da NT9/PR de 5 amostras/semana.\n\n\n\n\n\n\n\n\nCOD_UNID\ntotal_amostras\nse_periodo\nindicador_3_media\nclassificacao\n\n\n\n\n6986609\n169\n38\n4.45\nDentro do recomendado\n\n\n7023049\n182\n38\n4.79\nDentro do recomendado\n\n\n\n\n\n\n\n\n\nIndicador 4 — Homogeneidade de envio de amostras: média entre o Indicador 2 e o % de semanas com 4 a 20 amostras.\n\n\n\n\n\n\n\n\nCOD_UNID\nse_periodo\nse_dentro_4a20\npct_se_4a20\nindicador_2_pct\nindicador_4_pct\nclassificacao\n\n\n\n\n6986609\n38\n33\n86.8\n94.7\n90.8\nMeta Atingida\n\n\n7023049\n38\n36\n94.7\n97.4\n96.1\nMeta Atingida\n\n\n\n\n\n\n\n\n\n\n\n\nIndicador 5 — % de registros que atendem à definição de caso de SG (definição vigente da NT9: infecção respiratória, início ≤10 dias, ≥2 sintomas com ≥1 respiratório).\n\n\n\nIndicador 6 — Média do % de preenchimento de Raça/Cor, Escolaridade e Uso de Antiviral.\n\n\n\nIndicador 7 — % de amostras processadas por RT-PCR. Valores abaixo de 95% já indicam desperdício de amostra, segundo o Caderno de Análise (meta genérica é 80%).\n\n\n\nIndicador 8 — % de amostras com resultado de RT-PCR em até 10 dias da coleta.\n\n\n\nIndicador 9 — % de casos encerrados em até 60 dias da notificação.\n\nAs últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um caso notificado perto do fim do período analisado ainda não teve tempo de completar os 60 dias, então conta como “não encerrado” mesmo que a unidade feche o caso normalmente depois (censura à direita). Ao ler este gráfico, desconsidere a queda nas semanas mais recentes.\n\n\n\n\n\n\nIndicador 11 — Proporção de positividade dos vírus testados (RT-PCR ou Imunofluorescência).\n\n\n\nIndicadores 12 e 13 — circulação viral por semana epidemiológica e por faixa etária. Ver a página Circulação viral para os gráficos completos, incluindo a versão só com vírus efetivamente identificados (sem “SG não especificado”).\n\n\n\n\nIndicador 14 — % de registros com o campo “contato direto com aves, suínos ou outro animal” preenchido. Único indicador com fórmula e classificação totalmente descritas na própria NT9 (Anexo 1)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
+    "section": "",
+    "text": "Este painel acompanha os indicadores de desempenho da Vigilância Sentinela de Síndrome Gripal (SG) nas unidades sentinelas da 15ª Regional de Saúde de Maringá/PR, conforme definido pela Nota Técnica nº 9, de 27/11/2025 (atualizada em 15/09/2026, SESA-PR).\nOs dados vêm da Ficha de Registro Individual de casos de SG que realizaram coleta de amostra (SIVEP-Gripe), exportada em formato DBF.\n\nSobre a fonte dos dados: a Nota Técnica nº 9 nomeia 13 dos 14 indicadores, mas remete a fórmula de cálculo detalhada ao Caderno de Análise - Indicadores de Desempenho e Resultado das Unidades Sentinelas da Vigilância da Síndrome Gripal no Brasil (CGCOVID/DEDT/SVSA/MS). Os Indicadores 1 e 10 dependem da Ficha de Agregado Semanal do Sivep-Gripe, que não está disponível nesta base — por isso não aparecem neste painel."
+  },
+  {
+    "objectID": "index.html#sobre-este-painel",
+    "href": "index.html#sobre-este-painel",
+    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
+    "section": "",
+    "text": "Este painel acompanha os indicadores de desempenho da Vigilância Sentinela de Síndrome Gripal (SG) nas unidades sentinelas da 15ª Regional de Saúde de Maringá/PR, conforme definido pela Nota Técnica nº 9, de 27/11/2025 (atualizada em 15/09/2026, SESA-PR).\nOs dados vêm da Ficha de Registro Individual de casos de SG que realizaram coleta de amostra (SIVEP-Gripe), exportada em formato DBF.\n\nSobre a fonte dos dados: a Nota Técnica nº 9 nomeia 13 dos 14 indicadores, mas remete a fórmula de cálculo detalhada ao Caderno de Análise - Indicadores de Desempenho e Resultado das Unidades Sentinelas da Vigilância da Síndrome Gripal no Brasil (CGCOVID/DEDT/SVSA/MS). Os Indicadores 1 e 10 dependem da Ficha de Agregado Semanal do Sivep-Gripe, que não está disponível nesta base — por isso não aparecem neste painel."
+  },
+  {
+    "objectID": "index.html#páginas",
+    "href": "index.html#páginas",
+    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
+    "section": "Páginas",
+    "text": "Páginas\n\nIndicadores (NT9) — os 12 indicadores calculáveis a partir da Ficha SG individual, organizados por Processo, Qualidade, Resultado e Indicador Estadual.\nCirculação viral — distribuição dos vírus respiratórios identificados, por semana epidemiológica e por faixa etária."
+  },
+  {
+    "objectID": "index.html#unidades-sentinelas-cobertas",
+    "href": "index.html#unidades-sentinelas-cobertas",
+    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
+    "section": "Unidades sentinelas cobertas",
+    "text": "Unidades sentinelas cobertas\n\n\n\nUnidade\nMunicípio\nCNES\n\n\n\n\nUPA Zona Sul\nMaringá\n6986609\n\n\nUnidade de Pronto Atendimento\nSarandi\n7023049"
+  }
+]

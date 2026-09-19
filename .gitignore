@@ -19,3 +19,5 @@ Thumbs.db
 # de propósito - é o que o GitHub Pages serve; só o cache intermediário
 # fica de fora)
 /.quarto/
+
+**/*.quarto_ipynb

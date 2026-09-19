@@ -1,0 +1,43 @@
+COD_UNID;faixa_etaria;categoria_viral;n_casos
+6986609;20 a 39 anos;COVID-19;3
+6986609;20 a 39 anos;Influenza A;8
+6986609;20 a 39 anos;Influenza B;9
+6986609;20 a 39 anos;Outro vírus respiratório;20
+6986609;20 a 39 anos;SG não especificado;29
+6986609;40 a 59 anos;COVID-19;3
+6986609;40 a 59 anos;Influenza A;2
+6986609;40 a 59 anos;Influenza B;3
+6986609;40 a 59 anos;Outro vírus respiratório;9
+6986609;40 a 59 anos;SG não especificado;24
+6986609;5 a 19 anos;COVID-19;2
+6986609;5 a 19 anos;Influenza A;1
+6986609;5 a 19 anos;Influenza B;6
+6986609;5 a 19 anos;Outro vírus respiratório;3
+6986609;5 a 19 anos;SG não especificado;4
+6986609;60 anos ou mais;COVID-19;1
+6986609;60 anos ou mais;Influenza A;1
+6986609;60 anos ou mais;Influenza B;2
+6986609;60 anos ou mais;Outro vírus respiratório;6
+6986609;60 anos ou mais;SG não especificado;22
+7023049;1 a 4 anos;Outro vírus respiratório;7
+7023049;1 a 4 anos;SG não especificado;4
+7023049;20 a 39 anos;COVID-19;2
+7023049;20 a 39 anos;Influenza A;11
+7023049;20 a 39 anos;Influenza B;7
+7023049;20 a 39 anos;Outro vírus respiratório;18
+7023049;20 a 39 anos;SG não especificado;24
+7023049;40 a 59 anos;COVID-19;3
+7023049;40 a 59 anos;Influenza A;2
+7023049;40 a 59 anos;Influenza B;4
+7023049;40 a 59 anos;Outro vírus respiratório;11
+7023049;40 a 59 anos;SG não especificado;13
+7023049;5 a 19 anos;Influenza A;2
+7023049;5 a 19 anos;Influenza B;6
+7023049;5 a 19 anos;Outro vírus respiratório;2
+7023049;5 a 19 anos;SG não especificado;21
+7023049;60 anos ou mais;Influenza A;3
+7023049;60 anos ou mais;Outro vírus respiratório;4
+7023049;60 anos ou mais;SG não especificado;20
+7023049;Menor de 1 ano;Influenza B;1
+7023049;Menor de 1 ano;Outro vírus respiratório;4
+7023049;Menor de 1 ano;SG não especificado;1

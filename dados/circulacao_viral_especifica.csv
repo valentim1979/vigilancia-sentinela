@@ -1,0 +1,217 @@
+SE_PRISINT;virus;n_casos
+012026;Influenza B;1
+012026;Metapneumovírus;1
+012026;Rinovírus;0
+012026;SARS-CoV-2;1
+012026;VSR;1
+012026;Influenza A;1
+022026;Influenza B;0
+022026;Metapneumovírus;0
+022026;Rinovírus;3
+022026;SARS-CoV-2;2
+022026;VSR;0
+022026;Influenza A;0
+032026;Influenza B;0
+032026;Metapneumovírus;0
+032026;Rinovírus;1
+032026;SARS-CoV-2;1
+032026;VSR;1
+032026;Influenza A;1
+042026;Influenza B;1
+042026;Metapneumovírus;2
+042026;Rinovírus;2
+042026;SARS-CoV-2;2
+042026;VSR;0
+042026;Influenza A;0
+052026;Influenza B;0
+052026;Metapneumovírus;0
+052026;Rinovírus;2
+052026;SARS-CoV-2;0
+052026;VSR;0
+052026;Influenza A;1
+062026;Influenza B;1
+062026;Metapneumovírus;0
+062026;Rinovírus;1
+062026;SARS-CoV-2;3
+062026;VSR;0
+062026;Influenza A;0
+072026;Influenza B;1
+072026;Metapneumovírus;1
+072026;Rinovírus;8
+072026;SARS-CoV-2;1
+072026;VSR;0
+072026;Influenza A;0
+082026;Influenza B;1
+082026;Metapneumovírus;0
+082026;Rinovírus;2
+082026;SARS-CoV-2;1
+082026;VSR;0
+082026;Influenza A;1
+092026;Influenza B;1
+092026;Metapneumovírus;0
+092026;Rinovírus;3
+092026;SARS-CoV-2;1
+092026;VSR;1
+092026;Influenza A;2
+102026;Influenza B;1
+102026;Metapneumovírus;0
+102026;Rinovírus;3
+102026;SARS-CoV-2;1
+102026;VSR;0
+102026;Influenza A;0
+112026;Influenza B;4
+112026;Metapneumovírus;0
+112026;Rinovírus;3
+112026;SARS-CoV-2;0
+112026;VSR;0
+112026;Influenza A;0
+122026;Influenza B;0
+122026;Metapneumovírus;0
+122026;Rinovírus;2
+122026;SARS-CoV-2;0
+122026;VSR;1
+122026;Influenza A;2
+132026;Influenza B;2
+132026;Metapneumovírus;0
+132026;Rinovírus;2
+132026;SARS-CoV-2;1
+132026;VSR;0
+132026;Influenza A;0
+142026;Influenza B;0
+142026;Metapneumovírus;0
+142026;Rinovírus;1
+142026;SARS-CoV-2;0
+142026;VSR;1
+142026;Influenza A;1
+152026;Influenza B;0
+152026;Metapneumovírus;0
+152026;Rinovírus;1
+152026;SARS-CoV-2;0
+152026;VSR;0
+152026;Influenza A;2
+162026;Influenza B;2
+162026;Metapneumovírus;0
+162026;Rinovírus;2
+162026;SARS-CoV-2;0
+162026;VSR;0
+162026;Influenza A;1
+172026;Influenza B;1
+172026;Metapneumovírus;0
+172026;Rinovírus;1
+172026;SARS-CoV-2;0
+172026;VSR;0
+172026;Influenza A;4
+182026;Influenza B;2
+182026;Metapneumovírus;0
+182026;Rinovírus;1
+182026;SARS-CoV-2;0
+182026;VSR;0
+182026;Influenza A;3
+192026;Influenza B;1
+192026;Metapneumovírus;0
+192026;Rinovírus;1
+192026;SARS-CoV-2;0
+192026;VSR;0
+192026;Influenza A;2
+202026;Influenza B;3
+202026;Metapneumovírus;0
+202026;Rinovírus;1
+202026;SARS-CoV-2;0
+202026;VSR;0
+202026;Influenza A;1
+212026;Influenza B;1
+212026;Metapneumovírus;0
+212026;Rinovírus;3
+212026;SARS-CoV-2;0
+212026;VSR;0
+212026;Influenza A;0
+222026;Influenza B;4
+222026;Metapneumovírus;0
+222026;Rinovírus;1
+222026;SARS-CoV-2;0
+222026;VSR;0
+222026;Influenza A;0
+232026;Influenza B;1
+232026;Metapneumovírus;0
+232026;Rinovírus;4
+232026;SARS-CoV-2;0
+232026;VSR;3
+232026;Influenza A;2
+242026;Influenza B;0
+242026;Metapneumovírus;0
+242026;Rinovírus;2
+242026;SARS-CoV-2;0
+242026;VSR;1
+242026;Influenza A;1
+252026;Influenza B;4
+252026;Metapneumovírus;0
+252026;Rinovírus;1
+252026;SARS-CoV-2;0
+252026;VSR;1
+252026;Influenza A;1
+262026;Influenza B;1
+262026;Metapneumovírus;0
+262026;Rinovírus;0
+262026;SARS-CoV-2;0
+262026;VSR;1
+262026;Influenza A;2
+272026;Influenza B;2
+272026;Metapneumovírus;0
+272026;Rinovírus;1
+272026;SARS-CoV-2;0
+272026;VSR;1
+272026;Influenza A;1
+282026;Influenza B;1
+282026;Metapneumovírus;0
+282026;Rinovírus;1
+282026;SARS-CoV-2;0
+282026;VSR;2
+282026;Influenza A;1
+292026;Influenza B;1
+292026;Metapneumovírus;0
+292026;Rinovírus;0
+292026;SARS-CoV-2;0
+292026;VSR;1
+292026;Influenza A;0
+302026;Influenza B;1
+302026;Metapneumovírus;0
+302026;Rinovírus;2
+302026;SARS-CoV-2;0
+302026;VSR;0
+302026;Influenza A;1
+312026;Influenza B;0
+312026;Metapneumovírus;0
+312026;Rinovírus;4
+312026;SARS-CoV-2;0
+312026;VSR;0
+312026;Influenza A;0
+322026;Influenza B;0
+322026;Metapneumovírus;1
+322026;Rinovírus;2
+322026;SARS-CoV-2;0
+322026;VSR;0
+322026;Influenza A;0
+332026;Influenza B;0
+332026;Metapneumovírus;0
+332026;Rinovírus;1
+332026;SARS-CoV-2;0
+332026;VSR;0
+332026;Influenza A;0
+342026;Influenza B;0
+342026;Metapneumovírus;1
+342026;Rinovírus;2
+342026;SARS-CoV-2;0
+342026;VSR;0
+342026;Influenza A;0
+352026;Influenza B;0
+352026;Metapneumovírus;1
+352026;Rinovírus;1
+352026;SARS-CoV-2;0
+352026;VSR;0
+352026;Influenza A;0
+362026;Influenza B;0
+362026;Metapneumovírus;0
+362026;Rinovírus;0
+362026;SARS-CoV-2;0
+362026;VSR;0
+362026;Influenza A;0

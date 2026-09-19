@@ -1,0 +1,33 @@
+/* Cor padrão já usada nos outros painéis/gráficos da 15ª RS
+   (ver /projects/.../standards-and-learnings.md: "Bar chart color standard: #0057A3") */
+:root {
+  --sg-azul: #0057A3;
+}
+
+.navbar {
+  background-color: var(--sg-azul) !important;
+}
+
+.navbar-brand, .nav-link {
+  color: #ffffff !important;
+}
+
+.indicador-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.indicador-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.aviso-dado {
+  background-color: #fff3cd;
+  border-left: 4px solid #e6a817;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.92rem;
+}

@@ -78,10 +78,23 @@ library(ggplot2)     # gráficos por semana epidemiológica (seção 7)
 #                          ---- 1. CARREGAMENTO E PREPARO DOS DADOS ----
 # ..........................................................................................
 
-arquivo_sg <- "C:/Users/valentim.junior/OneDrive/Área de Trabalho/Vírus Respiratórios/DBF_Vig_Sentinela/SG2026.dbf"
-# [Inferência] Caminho informado por você, com barras normais (R aceita "/"
-# no Windows sem precisar duplicar o "\"). Se preferir manter o caminho
-# original do Windows, use: "C:\\Users\\...\\SG2026.dbf" (barra dupla).
+# [Corrigido] Você já me deu dois caminhos diferentes pro mesmo arquivo
+# (Windows: C:/Users/valentim.junior/OneDrive/.../SG2026.dbf; Mac:
+# /Users/valentimsalajunior/Documents/DBF_Vig_Sentinela/SG2026.dbf) -
+# porque você troca de computador. Em vez de eu editar esse caminho
+# toda vez que isso mudar, ele agora vem do seu ~/.Renviron - que é
+# LOCAL de cada máquina, então cada computador aponta pro seu próprio
+# arquivo, e o script fica idêntico nos dois lugares.
+#
+# Adicione ao ~/.Renviron de CADA computador (uma linha, sem aspas):
+#   Windows: CAMINHO_SG_DBF=C:/Users/valentim.junior/OneDrive/Área de Trabalho/Vírus Respiratórios/DBF_Vig_Sentinela/SG2026.dbf
+#   Mac:     CAMINHO_SG_DBF=/Users/valentimsalajunior/Documents/DBF_Vig_Sentinela/SG2026.dbf
+readRenviron("~/.Renviron")
+arquivo_sg <- Sys.getenv("CAMINHO_SG_DBF")
+if (identical(arquivo_sg, "")) {
+  stop("Defina CAMINHO_SG_DBF no seu ~/.Renviron antes de rodar este ",
+       "script (veja o comentario acima para o caminho de cada maquina).")
+}
 
 sg_raw <- foreign::read.dbf(arquivo_sg, as.is = TRUE)
 

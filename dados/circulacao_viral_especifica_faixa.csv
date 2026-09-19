@@ -1,0 +1,29 @@
+faixa_etaria;virus;n_casos
+1 a 4 anos;Metapneumovírus;1
+1 a 4 anos;Rinovírus;4
+1 a 4 anos;VSR;2
+20 a 39 anos;Influenza A;20
+20 a 39 anos;Influenza B;16
+20 a 39 anos;Rinovírus;36
+20 a 39 anos;SARS-CoV-2;5
+20 a 39 anos;VSR;3
+40 a 59 anos;Influenza A;4
+40 a 59 anos;Influenza B;7
+40 a 59 anos;Metapneumovírus;2
+40 a 59 anos;Rinovírus;11
+40 a 59 anos;SARS-CoV-2;6
+40 a 59 anos;VSR;7
+5 a 19 anos;Influenza A;3
+5 a 19 anos;Influenza B;12
+5 a 19 anos;Metapneumovírus;1
+5 a 19 anos;Rinovírus;6
+5 a 19 anos;SARS-CoV-2;2
+60 anos ou mais;Influenza A;4
+60 anos ou mais;Influenza B;2
+60 anos ou mais;Metapneumovírus;3
+60 anos ou mais;Rinovírus;6
+60 anos ou mais;SARS-CoV-2;1
+60 anos ou mais;VSR;1
+Menor de 1 ano;Influenza B;1
+Menor de 1 ano;Rinovírus;2
+Menor de 1 ano;VSR;2
