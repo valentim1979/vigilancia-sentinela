@@ -4,7 +4,7 @@ title: "Circulação viral"
 
 Esta página traz a distribuição dos vírus respiratórios circulantes, em duas versões: a classificação oficial dos Indicadores 12 e 13 da NT9 (que inclui casos ainda não identificados), e uma versão complementar só com os vírus efetivamente encontrados, útil para acompanhar a variação semanal sem a categoria "SG não especificado" dominando a leitura.
 
-::: {.panel-tabset}
+**Meta esperada:** não se aplica — indicadores descritivos de vigilância, não de desempenho.
 
 ## Indicador 12 — por semana (oficial)
 
@@ -25,5 +25,3 @@ Abre a categoria "Outro vírus respiratório" nos vírus específicos (VSR, Para
 ## Só vírus identificados — por faixa etária
 
 ![](img/circulacao_viral_especifica_faixa.png)
-
-:::

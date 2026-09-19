@@ -4,14 +4,119 @@
     "href": "circulacao-viral.html",
     "title": "Circulação viral",
     "section": "",
-    "text": "Esta página traz a distribuição dos vírus respiratórios circulantes, em duas versões: a classificação oficial dos Indicadores 12 e 13 da NT9 (que inclui casos ainda não identificados), e uma versão complementar só com os vírus efetivamente encontrados, útil para acompanhar a variação semanal sem a categoria “SG não especificado” dominando a leitura.\n\nIndicador 12 — por semana (oficial)Indicador 13 — por faixa etária (oficial)Só vírus identificados — por semanaSó vírus identificados — por faixa etária\n\n\nClassificação final do caso (CLASSI_FIN), incluindo “SG não especificado”.\n\n\n\n\n\n\nAbre a categoria “Outro vírus respiratório” nos vírus específicos (VSR, Parainfluenza, Adenovírus, Metapneumovírus, Bocavírus, Rinovírus), usando os campos de RT-PCR e Imunofluorescência da ficha. Exclui “SG não especificado” e “outro agente etiológico” (não necessariamente viral). Um caso pode aparecer em mais de um vírus se houver codetecção."
+    "text": "Esta página traz a distribuição dos vírus respiratórios circulantes, em duas versões: a classificação oficial dos Indicadores 12 e 13 da NT9 (que inclui casos ainda não identificados), e uma versão complementar só com os vírus efetivamente encontrados, útil para acompanhar a variação semanal sem a categoria “SG não especificado” dominando a leitura.\nMeta esperada: não se aplica — indicadores descritivos de vigilância, não de desempenho."
+  },
+  {
+    "objectID": "circulacao-viral.html#indicador-12-por-semana-oficial",
+    "href": "circulacao-viral.html#indicador-12-por-semana-oficial",
+    "title": "Circulação viral",
+    "section": "Indicador 12 — por semana (oficial)",
+    "text": "Indicador 12 — por semana (oficial)\nClassificação final do caso (CLASSI_FIN), incluindo “SG não especificado”."
+  },
+  {
+    "objectID": "circulacao-viral.html#indicador-13-por-faixa-etária-oficial",
+    "href": "circulacao-viral.html#indicador-13-por-faixa-etária-oficial",
+    "title": "Circulação viral",
+    "section": "Indicador 13 — por faixa etária (oficial)",
+    "text": "Indicador 13 — por faixa etária (oficial)"
+  },
+  {
+    "objectID": "circulacao-viral.html#só-vírus-identificados-por-semana",
+    "href": "circulacao-viral.html#só-vírus-identificados-por-semana",
+    "title": "Circulação viral",
+    "section": "Só vírus identificados — por semana",
+    "text": "Só vírus identificados — por semana\nAbre a categoria “Outro vírus respiratório” nos vírus específicos (VSR, Parainfluenza, Adenovírus, Metapneumovírus, Bocavírus, Rinovírus), usando os campos de RT-PCR e Imunofluorescência da ficha. Exclui “SG não especificado” e “outro agente etiológico” (não necessariamente viral). Um caso pode aparecer em mais de um vírus se houver codetecção."
+  },
+  {
+    "objectID": "circulacao-viral.html#só-vírus-identificados-por-faixa-etária",
+    "href": "circulacao-viral.html#só-vírus-identificados-por-faixa-etária",
+    "title": "Circulação viral",
+    "section": "Só vírus identificados — por faixa etária",
+    "text": "Só vírus identificados — por faixa etária"
   },
   {
     "objectID": "indicadores.html",
     "href": "indicadores.html",
     "title": "Indicadores da NT nº 9/2025-2026",
     "section": "",
-    "text": "Cada indicador abaixo mostra o resultado mais recente por unidade sentinela e a série semanal, quando aplicável. A classificação de desempenho segue as faixas do Caderno de Análise: Silencioso (0%) · Baixíssimo Desempenho (1-20%) · Baixo Desempenho (21-80%) · Meta Atingida (81-100%).\n\nOs Indicadores 1 e 10 não aparecem aqui: dependem da Ficha de Agregado Semanal do Sivep-Gripe (total de atendimentos gerais), que não está nesta base de dados individual. Consulte o relatório pronto do próprio SIVEP-Gripe (menu Relatórios &gt; Indicadores) para esses dois.\n\n\nProcessoQualidadeResultadoIndicador Estadual\n\n\n\nIndicadores 2, 3 e 4 — coleta de amostras semanais\nBase comum aos três indicadores: nº de amostras de SG coletadas por semana epidemiológica, por unidade sentinela.\n\n\nIndicador 2 — % de semanas epidemiológicas com coleta de amostras de SG.\n\n\n\n\n\n\n\n\nCOD_UNID\nse_com_coleta\nse_periodo\nindicador_2_pct\nclassificacao\n\n\n\n\n6986609\n36\n38\n94.7\nMeta Atingida\n\n\n7023049\n37\n38\n97.4\nMeta Atingida\n\n\n\n\n\n\n\n\n\nIndicador 3 — Média de amostras de SG coletadas por semana. Não é percentual; classificação: Silencioso (0) · Abaixo do recomendado (1-3) · Dentro do recomendado (4-20) · Acima do recomendado (21+). Essa faixa é a nacional (NT 13/2023-CGVDI) — mais frouxa que a meta específica da NT9/PR de 5 amostras/semana.\n\n\n\n\n\n\n\n\nCOD_UNID\ntotal_amostras\nse_periodo\nindicador_3_media\nclassificacao\n\n\n\n\n6986609\n169\n38\n4.45\nDentro do recomendado\n\n\n7023049\n182\n38\n4.79\nDentro do recomendado\n\n\n\n\n\n\n\n\n\nIndicador 4 — Homogeneidade de envio de amostras: média entre o Indicador 2 e o % de semanas com 4 a 20 amostras.\n\n\n\n\n\n\n\n\nCOD_UNID\nse_periodo\nse_dentro_4a20\npct_se_4a20\nindicador_2_pct\nindicador_4_pct\nclassificacao\n\n\n\n\n6986609\n38\n33\n86.8\n94.7\n90.8\nMeta Atingida\n\n\n7023049\n38\n36\n94.7\n97.4\n96.1\nMeta Atingida\n\n\n\n\n\n\n\n\n\n\n\n\nIndicador 5 — % de registros que atendem à definição de caso de SG (definição vigente da NT9: infecção respiratória, início ≤10 dias, ≥2 sintomas com ≥1 respiratório).\n\n\n\nIndicador 6 — Média do % de preenchimento de Raça/Cor, Escolaridade e Uso de Antiviral.\n\n\n\nIndicador 7 — % de amostras processadas por RT-PCR. Valores abaixo de 95% já indicam desperdício de amostra, segundo o Caderno de Análise (meta genérica é 80%).\n\n\n\nIndicador 8 — % de amostras com resultado de RT-PCR em até 10 dias da coleta.\n\n\n\nIndicador 9 — % de casos encerrados em até 60 dias da notificação.\n\nAs últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um caso notificado perto do fim do período analisado ainda não teve tempo de completar os 60 dias, então conta como “não encerrado” mesmo que a unidade feche o caso normalmente depois (censura à direita). Ao ler este gráfico, desconsidere a queda nas semanas mais recentes.\n\n\n\n\n\n\nIndicador 11 — Proporção de positividade dos vírus testados (RT-PCR ou Imunofluorescência).\n\n\n\nIndicadores 12 e 13 — circulação viral por semana epidemiológica e por faixa etária. Ver a página Circulação viral para os gráficos completos, incluindo a versão só com vírus efetivamente identificados (sem “SG não especificado”).\n\n\n\n\nIndicador 14 — % de registros com o campo “contato direto com aves, suínos ou outro animal” preenchido. Único indicador com fórmula e classificação totalmente descritas na própria NT9 (Anexo 1)."
+    "text": "A classificação de desempenho segue as faixas do Caderno de Análise: Silencioso (0%) · Baixíssimo Desempenho (1-20%) · Baixo Desempenho (21-80%) · Meta Atingida (81-100%) — exceto onde indicado de outra forma."
+  },
+  {
+    "objectID": "indicadores.html#indicador-2-de-semanas-com-coleta-de-amostras",
+    "href": "indicadores.html#indicador-2-de-semanas-com-coleta-de-amostras",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 2 — % de semanas com coleta de amostras",
+    "text": "Indicador 2 — % de semanas com coleta de amostras\nMeta esperada: ≥ 80% (Meta Atingida).\nBase comum aos Indicadores 2, 3 e 4: nº de amostras de SG coletadas por semana epidemiológica, por unidade sentinela.\n\n\n\n\n\n\n\n\n\nUnidade sentinela\nNº de SE com coleta de amostras\nNº de SE no período\nIndicador 2 (%)\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n36\n38\n94.7\nMeta Atingida\n\n\nUPA Sarandi (Sarandi)\n37\n38\n97.4\nMeta Atingida"
+  },
+  {
+    "objectID": "indicadores.html#indicador-3-média-de-amostras-coletadas-por-semana",
+    "href": "indicadores.html#indicador-3-média-de-amostras-coletadas-por-semana",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 3 — Média de amostras coletadas por semana",
+    "text": "Indicador 3 — Média de amostras coletadas por semana\nMeta esperada: 5 amostras/semana (meta específica da NT9/PR — Tabela 2, “Excelente”). Não é percentual, então não usa a classificação padrão acima; a classificação nacional do Caderno de Análise (Silencioso · Abaixo do recomendado 1-3 · Dentro do recomendado 4-20 · Acima do recomendado 21+) é mais frouxa que a meta do Paraná.\n\n\n\n\n\n\n\n\nUnidade sentinela\nTotal de amostras coletadas\nNº de SE no período\nMédia de amostras por SE\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n169\n38\n4.45\nDentro do recomendado\n\n\nUPA Sarandi (Sarandi)\n182\n38\n4.79\nDentro do recomendado"
+  },
+  {
+    "objectID": "indicadores.html#indicador-4-homogeneidade-de-envio-de-amostras",
+    "href": "indicadores.html#indicador-4-homogeneidade-de-envio-de-amostras",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 4 — Homogeneidade de envio de amostras",
+    "text": "Indicador 4 — Homogeneidade de envio de amostras\nMeta esperada: ≥ 80% (Meta Atingida). Calculado como a média entre o Indicador 2 e o % de semanas com 4 a 20 amostras.\n\n\n\n\n\n\n\n\nUnidade sentinela\nNº de SE no período\nNº de SE com 4 a 20 amostras\n% de SE com 4 a 20 amostras\nIndicador 2 (%)\nIndicador 4 (%)\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n38\n33\n86.8\n94.7\n90.8\nMeta Atingida\n\n\nUPA Sarandi (Sarandi)\n38\n36\n94.7\n97.4\n96.1\nMeta Atingida"
+  },
+  {
+    "objectID": "indicadores.html#indicador-5-de-registros-que-atendem-à-definição-de-caso-de-sg",
+    "href": "indicadores.html#indicador-5-de-registros-que-atendem-à-definição-de-caso-de-sg",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 5 — % de registros que atendem à definição de caso de SG",
+    "text": "Indicador 5 — % de registros que atendem à definição de caso de SG\nMeta esperada: ≥ 80% (Meta Atingida). Definição vigente da NT9: infecção respiratória, início ≤10 dias, ≥2 sintomas com ≥1 respiratório."
+  },
+  {
+    "objectID": "indicadores.html#indicador-6-preenchimento-de-raçacor-escolaridade-e-uso-de-antiviral",
+    "href": "indicadores.html#indicador-6-preenchimento-de-raçacor-escolaridade-e-uso-de-antiviral",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 6 — Preenchimento de Raça/Cor, Escolaridade e Uso de Antiviral",
+    "text": "Indicador 6 — Preenchimento de Raça/Cor, Escolaridade e Uso de Antiviral\nMeta esperada: ≥ 80% (Meta Atingida). Média do % de preenchimento das 3 variáveis."
+  },
+  {
+    "objectID": "indicadores.html#indicador-7-de-amostras-processadas-por-rt-pcr",
+    "href": "indicadores.html#indicador-7-de-amostras-processadas-por-rt-pcr",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 7 — % de amostras processadas por RT-PCR",
+    "text": "Indicador 7 — % de amostras processadas por RT-PCR\nMeta esperada: ≥ 80% (Meta Atingida) — mas o Caderno de Análise alerta que valores abaixo de 95% já indicam desperdício de amostra, um critério mais rígido que a meta genérica."
+  },
+  {
+    "objectID": "indicadores.html#indicador-8-de-resultados-de-rt-pcr-em-até-10-dias-da-coleta",
+    "href": "indicadores.html#indicador-8-de-resultados-de-rt-pcr-em-até-10-dias-da-coleta",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 8 — % de resultados de RT-PCR em até 10 dias da coleta",
+    "text": "Indicador 8 — % de resultados de RT-PCR em até 10 dias da coleta\nMeta esperada: ≥ 80% (Meta Atingida)."
+  },
+  {
+    "objectID": "indicadores.html#indicador-9-de-casos-encerrados-em-até-60-dias",
+    "href": "indicadores.html#indicador-9-de-casos-encerrados-em-até-60-dias",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 9 — % de casos encerrados em até 60 dias",
+    "text": "Indicador 9 — % de casos encerrados em até 60 dias\nMeta esperada: ≥ 80% (Meta Atingida).\n\nAs últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um caso notificado perto do fim do período analisado ainda não teve tempo de completar os 60 dias, então conta como “não encerrado” mesmo que a unidade feche o caso normalmente depois (censura à direita). Ao ler este gráfico, desconsidere a queda nas semanas mais recentes."
+  },
+  {
+    "objectID": "indicadores.html#indicador-11-proporção-de-positividade-dos-vírus-testados",
+    "href": "indicadores.html#indicador-11-proporção-de-positividade-dos-vírus-testados",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 11 — Proporção de positividade dos vírus testados",
+    "text": "Indicador 11 — Proporção de positividade dos vírus testados\nMeta esperada: não há meta definida na NT9 — é um indicador de resultado/vigilância (descreve a circulação viral), não de desempenho da unidade."
+  },
+  {
+    "objectID": "indicadores.html#indicadores-12-e-13-circulação-viral",
+    "href": "indicadores.html#indicadores-12-e-13-circulação-viral",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicadores 12 e 13 — Circulação viral",
+    "text": "Indicadores 12 e 13 — Circulação viral\nMeta esperada: não se aplica — indicadores descritivos.\nCirculação viral por semana epidemiológica e por faixa etária. Ver a página Circulação viral para os gráficos completos, incluindo a versão só com vírus efetivamente identificados (sem “SG não especificado”)."
+  },
+  {
+    "objectID": "indicadores.html#indicador-14-preenchimento-do-contato-com-avessuínosoutro-animal",
+    "href": "indicadores.html#indicador-14-preenchimento-do-contato-com-avessuínosoutro-animal",
+    "title": "Indicadores da NT nº 9/2025-2026",
+    "section": "Indicador 14 — Preenchimento do contato com aves/suínos/outro animal",
+    "text": "Indicador 14 — Preenchimento do contato com aves/suínos/outro animal\nMeta esperada: ≥ 80% (Meta Atingida). Único indicador com fórmula e classificação totalmente descritas na própria NT9 (Anexo 1).\n\n\n\n\n\n\n\n\n\nUnidade sentinela\nTotal de registros\nCampo preenchido\nIndicador 14 (%)\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n169\n168\n99.4\nMeta Atingida\n\n\nUPA Sarandi (Sarandi)\n182\n182\n100.0\nMeta Atingida"
   },
   {
     "objectID": "index.html",
