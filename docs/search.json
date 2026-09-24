@@ -1,40 +1,5 @@
 [
   {
-    "objectID": "circulacao-viral.html",
-    "href": "circulacao-viral.html",
-    "title": "Circulação viral",
-    "section": "",
-    "text": "Esta página traz a distribuição dos vírus respiratórios circulantes, em duas versões: a classificação oficial dos Indicadores 12 e 13 da NT9 (que inclui casos ainda não identificados), e uma versão complementar só com os vírus efetivamente encontrados, útil para acompanhar a variação semanal sem a categoria “SG não especificado” dominando a leitura.\nMeta esperada: não se aplica — indicadores descritivos de vigilância, não de desempenho."
-  },
-  {
-    "objectID": "circulacao-viral.html#indicador-12-por-semana-oficial",
-    "href": "circulacao-viral.html#indicador-12-por-semana-oficial",
-    "title": "Circulação viral",
-    "section": "Indicador 12 — por semana (oficial)",
-    "text": "Indicador 12 — por semana (oficial)\nClassificação final do caso (CLASSI_FIN), incluindo “SG não especificado”."
-  },
-  {
-    "objectID": "circulacao-viral.html#indicador-13-por-faixa-etária-oficial",
-    "href": "circulacao-viral.html#indicador-13-por-faixa-etária-oficial",
-    "title": "Circulação viral",
-    "section": "Indicador 13 — por faixa etária (oficial)",
-    "text": "Indicador 13 — por faixa etária (oficial)"
-  },
-  {
-    "objectID": "circulacao-viral.html#só-vírus-identificados-por-semana",
-    "href": "circulacao-viral.html#só-vírus-identificados-por-semana",
-    "title": "Circulação viral",
-    "section": "Só vírus identificados — por semana",
-    "text": "Só vírus identificados — por semana\nAbre a categoria “Outro vírus respiratório” nos vírus específicos (VSR, Parainfluenza, Adenovírus, Metapneumovírus, Bocavírus, Rinovírus), usando os campos de RT-PCR e Imunofluorescência da ficha. Exclui “SG não especificado” e “outro agente etiológico” (não necessariamente viral). Um caso pode aparecer em mais de um vírus se houver codetecção."
-  },
-  {
-    "objectID": "circulacao-viral.html#só-vírus-identificados-por-faixa-etária",
-    "href": "circulacao-viral.html#só-vírus-identificados-por-faixa-etária",
-    "title": "Circulação viral",
-    "section": "Só vírus identificados — por faixa etária",
-    "text": "Só vírus identificados — por faixa etária"
-  },
-  {
     "objectID": "indicadores.html",
     "href": "indicadores.html",
     "title": "Indicadores da NT nº 9/2025-2026",
@@ -117,6 +82,41 @@
     "title": "Indicadores da NT nº 9/2025-2026",
     "section": "Indicador 14 — Preenchimento do contato com aves/suínos/outro animal",
     "text": "Indicador 14 — Preenchimento do contato com aves/suínos/outro animal\nMeta esperada: ≥ 80% (Meta Atingida). Único indicador com fórmula e classificação totalmente descritas na própria NT9 (Anexo 1).\n\n\n\n\n\n\n\n\n\nUnidade sentinela\nTotal de registros\nCampo preenchido\nIndicador 14 (%)\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n169\n168\n99.4\nMeta Atingida\n\n\nUPA Sarandi (Sarandi)\n182\n182\n100.0\nMeta Atingida"
+  },
+  {
+    "objectID": "circulacao-viral.html",
+    "href": "circulacao-viral.html",
+    "title": "Circulação viral",
+    "section": "",
+    "text": "Esta página traz a distribuição dos vírus respiratórios circulantes, em duas versões: a classificação oficial dos Indicadores 12 e 13 da NT9 (que inclui casos ainda não identificados), e uma versão complementar só com os vírus efetivamente encontrados, útil para acompanhar a variação semanal sem a categoria “SG não especificado” dominando a leitura.\nMeta esperada: não se aplica — indicadores descritivos de vigilância, não de desempenho."
+  },
+  {
+    "objectID": "circulacao-viral.html#indicador-12-por-semana-oficial",
+    "href": "circulacao-viral.html#indicador-12-por-semana-oficial",
+    "title": "Circulação viral",
+    "section": "Indicador 12 — por semana (oficial)",
+    "text": "Indicador 12 — por semana (oficial)\nClassificação final do caso (CLASSI_FIN), incluindo “SG não especificado”."
+  },
+  {
+    "objectID": "circulacao-viral.html#indicador-13-por-faixa-etária-oficial",
+    "href": "circulacao-viral.html#indicador-13-por-faixa-etária-oficial",
+    "title": "Circulação viral",
+    "section": "Indicador 13 — por faixa etária (oficial)",
+    "text": "Indicador 13 — por faixa etária (oficial)"
+  },
+  {
+    "objectID": "circulacao-viral.html#só-vírus-identificados-por-semana",
+    "href": "circulacao-viral.html#só-vírus-identificados-por-semana",
+    "title": "Circulação viral",
+    "section": "Só vírus identificados — por semana",
+    "text": "Só vírus identificados — por semana\nAbre a categoria “Outro vírus respiratório” nos vírus específicos (VSR, Parainfluenza, Adenovírus, Metapneumovírus, Bocavírus, Rinovírus), usando os campos de RT-PCR e Imunofluorescência da ficha. Exclui “SG não especificado” e “outro agente etiológico” (não necessariamente viral). Um caso pode aparecer em mais de um vírus se houver codetecção."
+  },
+  {
+    "objectID": "circulacao-viral.html#só-vírus-identificados-por-faixa-etária",
+    "href": "circulacao-viral.html#só-vírus-identificados-por-faixa-etária",
+    "title": "Circulação viral",
+    "section": "Só vírus identificados — por faixa etária",
+    "text": "Só vírus identificados — por faixa etária"
   },
   {
     "objectID": "index.html",
