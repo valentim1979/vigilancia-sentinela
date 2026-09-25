@@ -128,15 +128,21 @@ tabela_indicador <- function(df, titulo = NULL) {
 }
 ```
 
-A classificação de desempenho segue as faixas do Caderno de Análise: **Silencioso** (0%) · **Baixíssimo Desempenho** (1-20%) · **Baixo Desempenho** (21-80%) · **Meta Atingida** (81-100%) — exceto onde indicado de outra forma.
+A classificação de desempenho segue as faixas do Caderno de Análise: **Silencioso** (0%) · **Baixíssimo Desempenho** (1-20%) · **Baixo Desempenho** (21-80%) · **Meta Atingida** (81-100%) — exceto onde indicado de outra forma. O gauge (velocímetro) segue o mesmo padrão visual usado no Caderno de Análise para ilustrar essas faixas, mas aqui a agulha aponta para o valor real de cada unidade sentinela, não é só ilustrativo.
 
 ::: {.aviso-dado}
 Os Indicadores **1** e **10** não aparecem aqui: dependem da Ficha de Agregado Semanal do Sivep-Gripe (total de atendimentos gerais), que não está nesta base de dados individual. Consulte o relatório pronto do próprio SIVEP-Gripe (menu Relatórios > Indicadores) para esses dois.
 :::
 
+# Indicadores de Processo
+
+Medem a regularidade da coleta e do envio de amostras pelas unidades sentinelas.
+
 ## Indicador 2 — % de semanas com coleta de amostras
 
 **Meta esperada:** ≥ 80% (Meta Atingida).
+
+![](img/gauge_indicador_02.png)
 
 Base comum aos Indicadores 2, 3 e 4: nº de amostras de SG coletadas por semana epidemiológica, por unidade sentinela.
 
@@ -150,6 +156,12 @@ tabela_indicador(ler_indicador("indicador_02.csv"))
 
 **Meta esperada:** 5 amostras/semana (meta específica da NT9/PR — Tabela 2, "Excelente"). Não é percentual, então não usa a classificação padrão acima; a classificação nacional do Caderno de Análise (Silencioso · Abaixo do recomendado 1-3 · Dentro do recomendado 4-20 · Acima do recomendado 21+) é mais frouxa que a meta do Paraná.
 
+::: {.aviso-dado}
+Este gauge usa uma escala própria, normalizada até 25 amostras/semana (não é %) — a posição da agulha é proporcional a essa escala, mas o número mostrado é o valor real de amostras/semana.
+:::
+
+![](img/gauge_indicador_03.png)
+
 ```{r}
 tabela_indicador(ler_indicador("indicador_03.csv"))
 ```
@@ -158,13 +170,21 @@ tabela_indicador(ler_indicador("indicador_03.csv"))
 
 **Meta esperada:** ≥ 80% (Meta Atingida). Calculado como a média entre o Indicador 2 e o % de semanas com 4 a 20 amostras.
 
+![](img/gauge_indicador_04.png)
+
 ```{r}
 tabela_indicador(ler_indicador("indicador_04.csv"))
 ```
 
+# Indicadores de Qualidade
+
+Medem a completude e a oportunidade dos dados registrados nas fichas.
+
 ## Indicador 5 — % de registros que atendem à definição de caso de SG
 
 **Meta esperada:** ≥ 80% (Meta Atingida). Definição vigente da NT9: infecção respiratória, início ≤10 dias, ≥2 sintomas com ≥1 respiratório.
+
+![](img/gauge_indicador_05.png)
 
 ![](img/indicador_05_semanal.png)
 
@@ -172,17 +192,23 @@ tabela_indicador(ler_indicador("indicador_04.csv"))
 
 **Meta esperada:** ≥ 80% (Meta Atingida). Média do % de preenchimento das 3 variáveis.
 
+![](img/gauge_indicador_06.png)
+
 ![](img/indicador_06_semanal.png)
 
 ## Indicador 7 — % de amostras processadas por RT-PCR
 
 **Meta esperada:** ≥ 80% (Meta Atingida) — mas o Caderno de Análise alerta que valores abaixo de 95% já indicam desperdício de amostra, um critério mais rígido que a meta genérica.
 
+![](img/gauge_indicador_07.png)
+
 ![](img/indicador_07_semanal.png)
 
 ## Indicador 8 — % de resultados de RT-PCR em até 10 dias da coleta
 
 **Meta esperada:** ≥ 80% (Meta Atingida).
+
+![](img/gauge_indicador_08.png)
 
 ![](img/indicador_08_semanal.png)
 
@@ -191,14 +217,18 @@ tabela_indicador(ler_indicador("indicador_04.csv"))
 **Meta esperada:** ≥ 80% (Meta Atingida).
 
 ::: {.aviso-dado}
-As últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um caso notificado perto do fim do período analisado ainda não teve tempo de completar os 60 dias, então conta como "não encerrado" mesmo que a unidade feche o caso normalmente depois (censura à direita). Ao ler este gráfico, desconsidere a queda nas semanas mais recentes.
+As últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um caso notificado perto do fim do período analisado ainda não teve tempo de completar os 60 dias, então conta como "não encerrado" mesmo que a unidade feche o caso normalmente depois (censura à direita). Ao ler o gauge/gráfico, desconsidere a queda nas semanas mais recentes se o período analisado terminar perto de hoje.
 :::
+
+![](img/gauge_indicador_09.png)
 
 ![](img/indicador_09_semanal.png)
 
+# Indicadores de Resultado
+
 ## Indicador 11 — Proporção de positividade dos vírus testados
 
-**Meta esperada:** não há meta definida na NT9 — é um indicador de resultado/vigilância (descreve a circulação viral), não de desempenho da unidade.
+**Meta esperada:** não há meta definida na NT9 — é um indicador de resultado/vigilância (descreve a circulação viral), não de desempenho da unidade. Por isso não tem gauge — não existe uma faixa "boa" ou "ruim" de positividade.
 
 ![](img/indicador_11_semanal.png)
 
@@ -207,6 +237,8 @@ As últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um ca
 **Meta esperada:** não se aplica — indicadores descritivos.
 
 Circulação viral por semana epidemiológica e por faixa etária. Ver a página **[Circulação viral](circulacao-viral.qmd)** para os gráficos completos, incluindo a versão só com vírus efetivamente identificados (sem "SG não especificado").
+
+# Indicador Estadual
 
 ## Indicador 14 — Preenchimento do contato com aves/suínos/outro animal
 

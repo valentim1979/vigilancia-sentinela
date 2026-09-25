@@ -4,28 +4,28 @@
     "href": "indicadores.html",
     "title": "Indicadores da NT nº 9/2025-2026",
     "section": "",
-    "text": "A classificação de desempenho segue as faixas do Caderno de Análise: Silencioso (0%) · Baixíssimo Desempenho (1-20%) · Baixo Desempenho (21-80%) · Meta Atingida (81-100%) — exceto onde indicado de outra forma."
+    "text": "A classificação de desempenho segue as faixas do Caderno de Análise: Silencioso (0%) · Baixíssimo Desempenho (1-20%) · Baixo Desempenho (21-80%) · Meta Atingida (81-100%) — exceto onde indicado de outra forma. O gauge (velocímetro) segue o mesmo padrão visual usado no Caderno de Análise para ilustrar essas faixas, mas aqui a agulha aponta para o valor real de cada unidade sentinela, não é só ilustrativo."
   },
   {
     "objectID": "indicadores.html#indicador-2-de-semanas-com-coleta-de-amostras",
     "href": "indicadores.html#indicador-2-de-semanas-com-coleta-de-amostras",
     "title": "Indicadores da NT nº 9/2025-2026",
     "section": "Indicador 2 — % de semanas com coleta de amostras",
-    "text": "Indicador 2 — % de semanas com coleta de amostras\nMeta esperada: ≥ 80% (Meta Atingida).\nBase comum aos Indicadores 2, 3 e 4: nº de amostras de SG coletadas por semana epidemiológica, por unidade sentinela.\n\n\n\n\n\n\n\n\n\nUnidade sentinela\nNº de SE com coleta de amostras\nNº de SE no período\nIndicador 2 (%)\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n36\n38\n94.7\nMeta Atingida\n\n\nUPA Sarandi (Sarandi)\n37\n38\n97.4\nMeta Atingida"
+    "text": "Indicador 2 — % de semanas com coleta de amostras\nMeta esperada: ≥ 80% (Meta Atingida).\n\nBase comum aos Indicadores 2, 3 e 4: nº de amostras de SG coletadas por semana epidemiológica, por unidade sentinela.\n\n\n\n\n\n\n\n\n\nUnidade sentinela\nNº de SE com coleta de amostras\nNº de SE no período\nIndicador 2 (%)\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n36\n38\n94.7\nMeta Atingida\n\n\nUPA Sarandi (Sarandi)\n37\n38\n97.4\nMeta Atingida"
   },
   {
     "objectID": "indicadores.html#indicador-3-média-de-amostras-coletadas-por-semana",
     "href": "indicadores.html#indicador-3-média-de-amostras-coletadas-por-semana",
     "title": "Indicadores da NT nº 9/2025-2026",
     "section": "Indicador 3 — Média de amostras coletadas por semana",
-    "text": "Indicador 3 — Média de amostras coletadas por semana\nMeta esperada: 5 amostras/semana (meta específica da NT9/PR — Tabela 2, “Excelente”). Não é percentual, então não usa a classificação padrão acima; a classificação nacional do Caderno de Análise (Silencioso · Abaixo do recomendado 1-3 · Dentro do recomendado 4-20 · Acima do recomendado 21+) é mais frouxa que a meta do Paraná.\n\n\n\n\n\n\n\n\nUnidade sentinela\nTotal de amostras coletadas\nNº de SE no período\nMédia de amostras por SE\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n169\n38\n4.45\nDentro do recomendado\n\n\nUPA Sarandi (Sarandi)\n182\n38\n4.79\nDentro do recomendado"
+    "text": "Indicador 3 — Média de amostras coletadas por semana\nMeta esperada: 5 amostras/semana (meta específica da NT9/PR — Tabela 2, “Excelente”). Não é percentual, então não usa a classificação padrão acima; a classificação nacional do Caderno de Análise (Silencioso · Abaixo do recomendado 1-3 · Dentro do recomendado 4-20 · Acima do recomendado 21+) é mais frouxa que a meta do Paraná.\n\nEste gauge usa uma escala própria, normalizada até 25 amostras/semana (não é %) — a posição da agulha é proporcional a essa escala, mas o número mostrado é o valor real de amostras/semana.\n\n\n\n\n\n\n\n\n\n\nUnidade sentinela\nTotal de amostras coletadas\nNº de SE no período\nMédia de amostras por SE\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n169\n38\n4.45\nDentro do recomendado\n\n\nUPA Sarandi (Sarandi)\n182\n38\n4.79\nDentro do recomendado"
   },
   {
     "objectID": "indicadores.html#indicador-4-homogeneidade-de-envio-de-amostras",
     "href": "indicadores.html#indicador-4-homogeneidade-de-envio-de-amostras",
     "title": "Indicadores da NT nº 9/2025-2026",
     "section": "Indicador 4 — Homogeneidade de envio de amostras",
-    "text": "Indicador 4 — Homogeneidade de envio de amostras\nMeta esperada: ≥ 80% (Meta Atingida). Calculado como a média entre o Indicador 2 e o % de semanas com 4 a 20 amostras.\n\n\n\n\n\n\n\n\nUnidade sentinela\nNº de SE no período\nNº de SE com 4 a 20 amostras\n% de SE com 4 a 20 amostras\nIndicador 2 (%)\nIndicador 4 (%)\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n38\n33\n86.8\n94.7\n90.8\nMeta Atingida\n\n\nUPA Sarandi (Sarandi)\n38\n36\n94.7\n97.4\n96.1\nMeta Atingida"
+    "text": "Indicador 4 — Homogeneidade de envio de amostras\nMeta esperada: ≥ 80% (Meta Atingida). Calculado como a média entre o Indicador 2 e o % de semanas com 4 a 20 amostras.\n\n\n\n\n\n\n\n\n\nUnidade sentinela\nNº de SE no período\nNº de SE com 4 a 20 amostras\n% de SE com 4 a 20 amostras\nIndicador 2 (%)\nIndicador 4 (%)\nClassificação\n\n\n\n\nUPA Zona Sul (Maringá)\n38\n33\n86.8\n94.7\n90.8\nMeta Atingida\n\n\nUPA Sarandi (Sarandi)\n38\n36\n94.7\n97.4\n96.1\nMeta Atingida"
   },
   {
     "objectID": "indicadores.html#indicador-5-de-registros-que-atendem-à-definição-de-caso-de-sg",
@@ -60,14 +60,14 @@
     "href": "indicadores.html#indicador-9-de-casos-encerrados-em-até-60-dias",
     "title": "Indicadores da NT nº 9/2025-2026",
     "section": "Indicador 9 — % de casos encerrados em até 60 dias",
-    "text": "Indicador 9 — % de casos encerrados em até 60 dias\nMeta esperada: ≥ 80% (Meta Atingida).\n\nAs últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um caso notificado perto do fim do período analisado ainda não teve tempo de completar os 60 dias, então conta como “não encerrado” mesmo que a unidade feche o caso normalmente depois (censura à direita). Ao ler este gráfico, desconsidere a queda nas semanas mais recentes."
+    "text": "Indicador 9 — % de casos encerrados em até 60 dias\nMeta esperada: ≥ 80% (Meta Atingida).\n\nAs últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um caso notificado perto do fim do período analisado ainda não teve tempo de completar os 60 dias, então conta como “não encerrado” mesmo que a unidade feche o caso normalmente depois (censura à direita). Ao ler o gauge/gráfico, desconsidere a queda nas semanas mais recentes se o período analisado terminar perto de hoje."
   },
   {
     "objectID": "indicadores.html#indicador-11-proporção-de-positividade-dos-vírus-testados",
     "href": "indicadores.html#indicador-11-proporção-de-positividade-dos-vírus-testados",
     "title": "Indicadores da NT nº 9/2025-2026",
     "section": "Indicador 11 — Proporção de positividade dos vírus testados",
-    "text": "Indicador 11 — Proporção de positividade dos vírus testados\nMeta esperada: não há meta definida na NT9 — é um indicador de resultado/vigilância (descreve a circulação viral), não de desempenho da unidade."
+    "text": "Indicador 11 — Proporção de positividade dos vírus testados\nMeta esperada: não há meta definida na NT9 — é um indicador de resultado/vigilância (descreve a circulação viral), não de desempenho da unidade. Por isso não tem gauge — não existe uma faixa “boa” ou “ruim” de positividade."
   },
   {
     "objectID": "indicadores.html#indicadores-12-e-13-circulação-viral",

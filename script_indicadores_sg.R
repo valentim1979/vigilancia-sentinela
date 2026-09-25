@@ -1141,3 +1141,178 @@ ggsave("./img/circulacao_viral_especifica_faixa.png", grafico_virus_faixa_etaria
        width = 10, height = 6, dpi = 150)
 
 message("Gráfico de vírus específicos por faixa etária (% empilhado) salvo em ./img/circulacao_viral_especifica_faixa.png")
+
+# ..........................................................................................
+#   9. GRÁFICOS DE VELOCÍMETRO (GAUGE) - ESTILO DO CADERNO DE ANÁLISE
+#      Blocos "Indicadores de Processo" (2, 3, 4) e "Indicadores de
+#      Qualidade" (5 a 9)
+# ..........................................................................................
+#
+# [Inferência] O Caderno de Análise ilustra a classificação de cada
+# indicador com um gráfico de velocímetro (faixas vermelho/amarelo/
+# verde, agulha no meio). Reproduzi esse estilo aqui, mas com uma
+# diferença importante: no Caderno, a agulha é só ILUSTRATIVA (a mesma
+# posição genérica 0/10/50/95 se repete em todos os indicadores, para
+# explicar o que cada faixa significa). Aqui, a agulha aponta para o
+# VALOR REAL calculado de cada unidade sentinela - é um gauge
+# operacional, não só um pictograma explicativo.
+#
+# [Não verificado] Não encontrei no Caderno uma versão do velocímetro
+# calibrada especificamente para o Indicador 3 (que não é percentual -
+# é uma média de amostras, sem teto natural). Construí uma versão
+# própria: mapeio a média real para uma escala 0-100 usando um teto
+# visual de 25 amostras/semana (um pouco acima do limite de "acima do
+# recomendado" da NT 13/2023), e uso 3 faixas de cor consistentes com a
+# classificação do próprio Caderno (vermelho = Silencioso/Abaixo do
+# recomendado, verde = Dentro do recomendado, azul = Acima do
+# recomendado - azul porque "acima" é excesso, não uma falha, então não
+# faz sentido pintar de vermelho).
+
+library(patchwork)  # install.packages("patchwork") - para combinar os gauges lado a lado
+
+# Gera as coordenadas de uma "fatia" do velocímetro entre os ângulos
+# correspondentes aos valores a e b (escala 0-100), como um anel entre
+# raio r1 e r2. É a técnica trigonométrica padrão para gauge chart em
+# ggplot2 (coord_fixed + polígonos, sem precisar de pacote extra).
+gauge_poligono <- function(a, b, r1 = 0.5, r2 = 1.0, n = 100) {
+  th_ini <- pi * (1 - a / 100)
+  th_fim <- pi * (1 - b / 100)
+  th <- seq(th_ini, th_fim, length.out = n)
+  data.frame(
+    x = c(r1 * cos(th), rev(r2 * cos(th))),
+    y = c(r1 * sin(th), rev(r2 * sin(th)))
+  )
+}
+
+# Um único velocímetro. `valor_pct` já deve estar na escala 0-100 (para
+# indicadores que não são %, normalize antes de chamar esta função - ver
+# grafico_gauge_indicador3() mais abaixo). `breaks_pct` e `cores`
+# definem as faixas de fundo (mesmo comprimento: length(cores) ==
+# length(breaks_pct) - 1).
+grafico_gauge <- function(valor_pct, rotulo_unidade, rotulo_valor,
+                           breaks_pct = c(0, 20, 80, 100),
+                           cores = c("#c62828", "#f9a825", "#2e7d32")) {
+  valor_pct <- max(0, min(100, valor_pct))
+
+  n_faixas <- length(cores)
+  faixas <- do.call(rbind, lapply(seq_len(n_faixas), function(i) {
+    p <- gauge_poligono(breaks_pct[i], breaks_pct[i + 1])
+    p$faixa <- i
+    p
+  }))
+
+  agulha <- gauge_poligono(valor_pct - 1, valor_pct + 1, r1 = 0, r2 = 0.9)
+
+  ggplot() +
+    geom_polygon(data = faixas, aes(x, y, group = faixa, fill = factor(faixa))) +
+    scale_fill_manual(values = setNames(cores, seq_len(n_faixas)), guide = "none") +
+    geom_polygon(data = agulha, aes(x, y), fill = "grey20") +
+    annotate("text", x = 0, y = -0.15, label = rotulo_valor, size = 6, fontface = "bold") +
+    annotate("text", x = 0, y = -0.45, label = rotulo_unidade, size = 3.2) +
+    coord_fixed(xlim = c(-1.05, 1.05), ylim = c(-0.5, 1.05)) +
+    theme_void()
+}
+
+# Combina um gauge por unidade sentinela num único PNG por indicador.
+# `coluna_valor` é a coluna que POSICIONA A AGULHA (sempre precisa
+# estar na escala 0-100). `coluna_rotulo` é a coluna usada só para o
+# TEXTO exibido (pode ser o valor real, em outra escala) - se omitida,
+# usa a mesma coluna do valor.
+grafico_gauge_indicador <- function(df, coluna_valor, titulo,
+                                     breaks_pct = c(0, 20, 80, 100),
+                                     cores = c("#c62828", "#f9a825", "#2e7d32"),
+                                     sufixo = "%", casas_decimais = 1,
+                                     coluna_rotulo = NULL) {
+  if (is.null(coluna_rotulo)) coluna_rotulo <- coluna_valor
+
+  df$nome_unidade <- ifelse(as.character(df$COD_UNID) %in% names(nomes_unidades_gauge),
+                             nomes_unidades_gauge[as.character(df$COD_UNID)],
+                             as.character(df$COD_UNID))
+
+  gauges <- lapply(seq_len(nrow(df)), function(i) {
+    valor_agulha   <- df[[coluna_valor]][i]
+    valor_mostrado <- df[[coluna_rotulo]][i]
+    grafico_gauge(
+      valor_pct      = valor_agulha,
+      rotulo_unidade = df$nome_unidade[i],
+      rotulo_valor   = paste0(round(valor_mostrado, casas_decimais), sufixo),
+      breaks_pct = breaks_pct, cores = cores
+    )
+  })
+
+  patchwork::wrap_plots(gauges, nrow = 1) +
+    patchwork::plot_annotation(title = titulo, theme = theme(plot.title = element_text(face = "bold", hjust = 0.5)))
+}
+
+# [Inferência] Mesmos nomes de unidade usados nas tabelas do site
+# (indicadores.qmd) - repetido aqui porque o script R e o .qmd rodam
+# em processos R separados, não compartilham variáveis automaticamente.
+nomes_unidades_gauge <- c(
+  "6986609" = "UPA Zona Sul (Maringá)",
+  "7023049" = "UPA Sarandi (Sarandi)"
+)
+
+# --- Bloco INDICADORES DE PROCESSO (2, 3, 4) ---
+
+gauge_indicador_02 <- grafico_gauge_indicador(
+  resultados$indicador_2, "indicador_2_pct",
+  "Indicador 2 - % de SE com coleta de amostras"
+)
+ggsave("./img/gauge_indicador_02.png", gauge_indicador_02, width = 7, height = 4.5, dpi = 150)
+
+# Indicador 3 não é %: normalizo a média (0 a "teto_visual") para a
+# escala 0-100 que posiciona a agulha, mas o RÓTULO exibido usa o valor
+# real (ex. "4.45"), via coluna_rotulo - sem isso, o texto mostraria a
+# posição normalizada da agulha, não o valor de verdade.
+teto_visual_indicador3 <- 25
+gauge_indicador_03_df <- resultados$indicador_3
+gauge_indicador_03_df$valor_normalizado <- pmin(100, 100 * gauge_indicador_03_df$indicador_3_media / teto_visual_indicador3)
+gauge_indicador_03 <- grafico_gauge_indicador(
+  gauge_indicador_03_df, "valor_normalizado",
+  "Indicador 3 - Média de amostras por SE",
+  breaks_pct = 100 * c(0, 3, 20, teto_visual_indicador3) / teto_visual_indicador3,
+  cores = c("#c62828", "#2e7d32", "#1565c0"),
+  sufixo = "", casas_decimais = 2,
+  coluna_rotulo = "indicador_3_media"
+)
+ggsave("./img/gauge_indicador_03.png", gauge_indicador_03, width = 7, height = 4.5, dpi = 150)
+
+gauge_indicador_04 <- grafico_gauge_indicador(
+  resultados$indicador_4, "indicador_4_pct",
+  "Indicador 4 - Homogeneidade de envio de amostras"
+)
+ggsave("./img/gauge_indicador_04.png", gauge_indicador_04, width = 7, height = 4.5, dpi = 150)
+
+# --- Bloco INDICADORES DE QUALIDADE (5 a 9) ---
+
+gauge_indicador_05 <- grafico_gauge_indicador(
+  resultados$indicador_5, "indicador_5_pct",
+  "Indicador 5 - % que atende à definição de caso"
+)
+ggsave("./img/gauge_indicador_05.png", gauge_indicador_05, width = 7, height = 4.5, dpi = 150)
+
+gauge_indicador_06 <- grafico_gauge_indicador(
+  resultados$indicador_6, "indicador_6_media",
+  "Indicador 6 - Preenchimento de variáveis"
+)
+ggsave("./img/gauge_indicador_06.png", gauge_indicador_06, width = 7, height = 4.5, dpi = 150)
+
+gauge_indicador_07 <- grafico_gauge_indicador(
+  resultados$indicador_7, "indicador_7_pct",
+  "Indicador 7 - % processadas por RT-PCR"
+)
+ggsave("./img/gauge_indicador_07.png", gauge_indicador_07, width = 7, height = 4.5, dpi = 150)
+
+gauge_indicador_08 <- grafico_gauge_indicador(
+  resultados$indicador_8, "indicador_8_pct",
+  "Indicador 8 - % com resultado em até 10 dias"
+)
+ggsave("./img/gauge_indicador_08.png", gauge_indicador_08, width = 7, height = 4.5, dpi = 150)
+
+gauge_indicador_09 <- grafico_gauge_indicador(
+  resultados$indicador_9, "indicador_9_pct",
+  "Indicador 9 - % encerrados em até 60 dias"
+)
+ggsave("./img/gauge_indicador_09.png", gauge_indicador_09, width = 7, height = 4.5, dpi = 150)
+
+message("Gauges de Processo (2,3,4) e Qualidade (5-9) salvos em ./img/gauge_indicador_XX.png")
