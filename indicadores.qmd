@@ -2,6 +2,9 @@
 title: "Indicadores da NT nº 9/2025-2026"
 ---
 
+{{< include _atualizacao.qmd >}}
+
+
 ```{r}
 #| label: setup
 library(dplyr)

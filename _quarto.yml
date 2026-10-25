@@ -22,7 +22,7 @@ website:
         aria-label: GitHub
   page-footer:
     left: "15ª Regional de Saúde de Maringá — SCVGE/DIVEA"
-    right: "Fonte: Ficha SG (SIVEP-Gripe). Atualização manual — ver data no rodapé de cada gráfico."
+    right: "Fonte: Ficha SG individual e Ficha de Agregado Semanal (SIVEP-Gripe). Data da atualização no topo de cada página."
 
 format:
   html:

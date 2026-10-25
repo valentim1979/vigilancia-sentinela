@@ -31,3 +31,12 @@
   margin: 1rem 0;
   font-size: 0.92rem;
 }
+
+/* Faixa com a data de atualização, no topo de cada página (_atualizacao.qmd) */
+.atualizacao {
+  background-color: #e8f0f8;
+  border-left: 4px solid #0057A3;
+  padding: 0.5rem 1rem;
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+}

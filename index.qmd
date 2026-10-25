@@ -2,6 +2,9 @@
 title: "Vigilância Sentinela de Síndrome Gripal — 15ª RS"
 ---
 
+{{< include _atualizacao.qmd >}}
+
+
 ## Sobre este painel
 
 Este painel acompanha os indicadores de desempenho da **Vigilância Sentinela de Síndrome Gripal (SG)** nas unidades sentinelas da 15ª Regional de Saúde de Maringá/PR, conforme definido pela **Nota Técnica nº 9, de 27/11/2025** (atualizada em 15/09/2026, SESA-PR).

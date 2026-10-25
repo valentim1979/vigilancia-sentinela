@@ -575,6 +575,17 @@ readr::write_csv2(resultados$indicadores_12_13$indicador_12_por_SE,    "./dados/
 readr::write_csv2(resultados$indicadores_12_13$indicador_13_por_faixa, "./dados/indicador_13.csv")
 readr::write_csv2(resultados$indicador_14, "./dados/indicador_14.csv")
 
+# Datas mostradas no topo das páginas (_atualizacao.qmd)
+readr::write_csv2(data.frame(
+  painel_atualizado_em = Sys.Date(),
+  ficha_exportada_em   = data_exportacao,
+  agregado_exportado_em = if (!is.null(agregado_raw)) attr(agregado_raw, "exportado_em") else as.Date(NA),
+  periodo_inicio       = periodo_inicio,
+  periodo_fim          = periodo_fim,
+  se_fim               = MMWRweek::MMWRweek(periodo_fim)$MMWRweek,
+  ano                  = ano_base
+), "./dados/atualizacao.csv")
+
 message("Indicadores calculados e exportados em ./dados/")
 if (is.null(agregado_raw)) message("ATENÇÃO: Indicadores 1 e 10 NÃO foram calculados - falta ", basename(arquivo_agregado),
                                    " (jogue o DBF da Ficha de Agregado Semanal em ~/SG_entrada).")

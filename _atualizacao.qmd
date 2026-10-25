@@ -1,0 +1,20 @@
+```{r}
+#| label: atualizacao
+#| output: asis
+# Datas gravadas pelo script_indicadores_sg.R em dados/atualizacao.csv
+local({
+  arq <- file.path("dados", "atualizacao.csv")
+  if (!file.exists(arq)) return(invisible())
+  a <- readr::read_csv2(arq, show_col_types = FALSE)
+  br <- function(d) format(as.Date(d), "%d/%m/%Y")
+  partes <- c(
+    paste0("**Painel atualizado em ", br(a$painel_atualizado_em), "**"),
+    paste0("Período analisado: SE 1 a SE ", a$se_fim, " de ", a$ano,
+           " (", br(a$periodo_inicio), " a ", br(a$periodo_fim), ")"),
+    paste0("Ficha SG exportada do SIVEP-Gripe em ", br(a$ficha_exportada_em)),
+    if (!is.na(a$agregado_exportado_em))
+      paste0("Agregado semanal exportado em ", br(a$agregado_exportado_em))
+  )
+  cat("::: {.atualizacao}\n", paste(partes, collapse = " · "), "\n:::\n", sep = "")
+})
+```
