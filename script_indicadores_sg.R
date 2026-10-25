@@ -25,15 +25,13 @@
 # com a definição NOVA (da NT9, vigente hoje), não com a fórmula literal
 # e desatualizada do Caderno - ver comentário na função indicador_5().
 #
-# [Não verificado] Os Indicadores 1 e 10 dependem da FICHA DE AGREGADO
-# SEMANAL (total de atendimentos gerais e por SG), OU dos relatórios já
-# calculados pelo próprio SIVEP-Gripe (menu RELATÓRIOS > INDICADORES,
-# exportáveis em Excel). O Caderno deixa isso explícito: o sistema já
-# calcula esses dois indicadores automaticamente - não é preciso
-# recalculá-los a partir do .dbf individual. Por isso NÃO estão
-# implementados aqui. Ver observação ao final do script.
+# Os Indicadores 1 e 10 vêm da FICHA DE AGREGADO SEMANAL (atendimentos por
+# SG e consultas gerais por unidade e semana), exportada em DBF à parte; o
+# SIVEP-Gripe também os calcula (menu RELATÓRIOS > INDICADORES), o que
+# serve para conferir. Sem essa base, os dois ficam de fora.
 #
-# Este script NÃO foi executado contra dados reais.
+# Fórmulas conferidas contra o Caderno de Análise e a NT9 (atualizada em
+# 15/09/2026) em 25/10/2026.
 #
 # ..........................................................................................
 #                               CONVENÇÕES USADAS NESTE SCRIPT
@@ -205,17 +203,16 @@ classificar_desempenho <- function(pct) {
 # ..........................................................................................
 
 # Indicador 1 - % de SE com envio de dados agregados
-# [Inferência] O Caderno (p.16-17) mostra que este indicador também sai
-# pronto no SIVEP-Gripe (RELATÓRIOS > INDICADORES > "% DE SEMANAS COM
-# INFORMAÇÃO DE AGREGADO SEMANAL DE ATENDIMENTOS POR SG"). Aqui é
-# recalculado da Ficha de Agregado Semanal: Nº de SE com registro de
-# agregado da unidade / Nº de SE no período, x 100. Uma semana conta como
-# enviada quando existe o registro, mesmo com contagens zeradas. Uso a
-# classificação genérica do Caderno (0 / 1-20 / 21-80 / 81-100%) - não
-# conferi se o Caderno traz faixas próprias para este indicador.
+# [Fórmula oficial - Caderno p.15] Nº de SE com registro de dados agregados
+# (SG e atendimento geral) / Nº de SE no período analisado, x 100. É o
+# mesmo que o SIVEP-Gripe dá pronto em RELATÓRIOS > INDICADORES > "% DE
+# SEMANAS COM INFORMAÇÃO DE AGREGADO SEMANAL DE ATENDIMENTOS POR SG".
+# Calculado da Ficha de Agregado Semanal: a semana conta quando o registro
+# da unidade tem os dois totais (SG_TOTAL e TC_TOTAL) preenchidos.
+# Classificação: as faixas gerais do Caderno (p.16) e da NT9 (item 4.3).
 indicador_1 <- function(agregado, semanas) {
   agregado %>%
-    filter(SE_ATEND %in% semanas) %>%
+    filter(SE_ATEND %in% semanas, !is.na(SG_TOTAL), !is.na(TC_TOTAL)) %>%
     distinct(COD_UNID, SE_ATEND) %>%
     count(COD_UNID, name = "se_com_agregado") %>%
     mutate(
@@ -432,12 +429,11 @@ indicador_9 <- function(df) {
 # ..........................................................................................
 
 # Indicador 10 - Proporção de casos de SG sobre consultas gerais no período
-# [Inferência] O Caderno (p.69) diz que os Indicadores de Resultado (10 a
-# 13) reproduzem análises que o próprio SIVEP-Gripe já gera. Recalculado
-# aqui da Ficha de Agregado Semanal: atendimentos por SG (SG_TOTAL) /
-# total de consultas gerais (TC_TOTAL) no período, x 100. Como os
-# Indicadores 11-13, descreve a demanda por SG - não tem meta nem
-# classificação de desempenho.
+# [Conceito - Caderno p.64] Proporção de atendimentos por SG sobre o total
+# de consultas da unidade; o Caderno não traz fórmula nem classificação
+# (é indicador de resultado, "termômetro" da sazonalidade). Calculado da
+# Ficha de Agregado Semanal: SG_TOTAL / TC_TOTAL no período, x 100, e por
+# SE no gráfico semanal. Sem meta, sem classificação de desempenho.
 indicador_10 <- function(agregado, semanas) {
   agregado %>%
     filter(SE_ATEND %in% semanas) %>%
