@@ -6,15 +6,15 @@ title: "Vigilância Sentinela de Síndrome Gripal — 15ª RS"
 
 Este painel acompanha os indicadores de desempenho da **Vigilância Sentinela de Síndrome Gripal (SG)** nas unidades sentinelas da 15ª Regional de Saúde de Maringá/PR, conforme definido pela **Nota Técnica nº 9, de 27/11/2025** (atualizada em 15/09/2026, SESA-PR).
 
-Os dados vêm da Ficha de Registro Individual de casos de SG que realizaram coleta de amostra (SIVEP-Gripe), exportada em formato DBF.
+Os dados vêm de duas fichas do SIVEP-Gripe, exportadas em formato DBF: a Ficha de Registro Individual de casos de SG que realizaram coleta de amostra e a Ficha de Agregado Semanal (atendimentos por SG e consultas gerais de cada unidade, por semana).
 
 ::: {.aviso-dado}
-**Sobre a fonte dos dados**: a Nota Técnica nº 9 nomeia 13 dos 14 indicadores, mas remete a fórmula de cálculo detalhada ao *Caderno de Análise - Indicadores de Desempenho e Resultado das Unidades Sentinelas da Vigilância da Síndrome Gripal no Brasil* (CGCOVID/DEDT/SVSA/MS). Os Indicadores 1 e 10 dependem da Ficha de Agregado Semanal do Sivep-Gripe, que não está disponível nesta base — por isso não aparecem neste painel.
+**Sobre a fonte dos dados**: a Nota Técnica nº 9 nomeia 13 dos 14 indicadores, mas remete a fórmula de cálculo detalhada ao *Caderno de Análise - Indicadores de Desempenho e Resultado das Unidades Sentinelas da Vigilância da Síndrome Gripal no Brasil* (CGCOVID/DEDT/SVSA/MS). Os Indicadores 1 e 10 são calculados a partir da Ficha de Agregado Semanal; os demais, da Ficha individual.
 :::
 
 ## Páginas
 
-- **[Indicadores (NT9)](indicadores.qmd)** — os 12 indicadores calculáveis a partir da Ficha SG individual, organizados por Processo, Qualidade, Resultado e Indicador Estadual.
+- **[Indicadores (NT9)](indicadores.qmd)** — os 14 indicadores, organizados por Processo, Qualidade, Resultado e Indicador Estadual.
 - **[Circulação viral](circulacao-viral.qmd)** — distribuição dos vírus respiratórios identificados, por semana epidemiológica e por faixa etária.
 
 ## Unidades sentinelas cobertas

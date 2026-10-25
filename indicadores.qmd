@@ -36,6 +36,8 @@ renomear_unidade <- function(df) {
 # listadas aqui mantêm o nome original.
 rotulos_colunas <- c(
   COD_UNID                    = "Unidade sentinela",
+  se_com_agregado              = "Nº de SE com agregado enviado",
+  indicador_1_pct              = "Indicador 1 (%)",
   se_com_coleta                = "Nº de SE com coleta de amostras",
   se_periodo                   = "Nº de SE no período",
   indicador_2_pct                = "Indicador 2 (%)",
@@ -64,6 +66,9 @@ rotulos_colunas <- c(
   total_testados                                        = "Total testados",
   positivos                                              = "Positivos",
   indicador_11_pct                                        = "Indicador 11 (%)",
+  atendimentos_sg                                         = "Atendimentos por SG",
+  consultas_gerais                                        = "Consultas gerais",
+  indicador_10_pct                                        = "Indicador 10 (%)",
   preenchidos                                              = "Campo preenchido",
   indicador_14_pct                                          = "Indicador 14 (%)"
 )
@@ -131,12 +136,22 @@ tabela_indicador <- function(df, titulo = NULL) {
 A classificação de desempenho segue as faixas do Caderno de Análise: **Silencioso** (0%) · **Baixíssimo Desempenho** (1-20%) · **Baixo Desempenho** (21-80%) · **Meta Atingida** (81-100%) — exceto onde indicado de outra forma. O gauge (velocímetro) segue o mesmo padrão visual usado no Caderno de Análise para ilustrar essas faixas, mas aqui a agulha aponta para o valor real de cada unidade sentinela, não é só ilustrativo.
 
 ::: {.aviso-dado}
-Os Indicadores **1** e **10** não aparecem aqui: dependem da Ficha de Agregado Semanal do Sivep-Gripe (total de atendimentos gerais), que não está nesta base de dados individual. Consulte o relatório pronto do próprio SIVEP-Gripe (menu Relatórios > Indicadores) para esses dois.
+Os Indicadores **1** e **10** vêm da **Ficha de Agregado Semanal** do Sivep-Gripe (atendimentos por SG e consultas gerais por unidade e semana); os demais, da Ficha SG individual. O próprio SIVEP-Gripe também calcula os dois (menu Relatórios > Indicadores) — use esse relatório para conferir os valores deste painel.
 :::
 
 # Indicadores de Processo
 
 Medem a regularidade da coleta e do envio de amostras pelas unidades sentinelas.
+
+## Indicador 1 — % de semanas com envio do agregado semanal
+
+**Meta esperada:** ≥ 80% (Meta Atingida). Uma semana conta como enviada quando a unidade registrou o agregado semanal de atendimentos daquela semana no Sivep-Gripe.
+
+![](img/gauge_indicador_01.png)
+
+```{r}
+tabela_indicador(ler_indicador("indicador_01.csv"))
+```
 
 ## Indicador 2 — % de semanas com coleta de amostras
 
@@ -225,6 +240,16 @@ As últimas ~8-9 semanas deste gráfico tendem a cair de forma artificial: um ca
 ![](img/indicador_09_semanal.png)
 
 # Indicadores de Resultado
+
+## Indicador 10 — Proporção de atendimentos por SG entre as consultas gerais
+
+**Meta esperada:** não há meta definida na NT9 — descreve quanto da demanda da unidade é por síndrome gripal, por isso não tem gauge. Subidas semana a semana acompanham o aumento da circulação de vírus respiratórios.
+
+![](img/indicador_10_semanal.png)
+
+```{r}
+tabela_indicador(ler_indicador("indicador_10.csv"))
+```
 
 ## Indicador 11 — Proporção de positividade dos vírus testados
 

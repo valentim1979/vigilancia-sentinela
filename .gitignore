@@ -5,6 +5,10 @@
 /dados-brutos/
 /dados/raw/
 
+# Log e trava do processamento automático (processar_entrada.sh)
+processar_entrada.log
+.processar_entrada.lock
+
 # Arquivos de sessão R
 .Rhistory
 .Rdata

@@ -78,25 +78,29 @@ library(ggplot2)     # gráficos por semana epidemiológica (seção 7)
 #                          ---- 1. CARREGAMENTO E PREPARO DOS DADOS ----
 # ..........................................................................................
 
-# [Corrigido] Você já me deu dois caminhos diferentes pro mesmo arquivo
-# (Windows: C:/Users/valentim.junior/OneDrive/.../SG2026.dbf; Mac:
-# /Users/valentimsalajunior/Documents/DBF_Vig_Sentinela/SG2026.dbf) -
-# porque você troca de computador. Em vez de eu editar esse caminho
-# toda vez que isso mudar, ele agora vem do seu ~/.Renviron - que é
-# LOCAL de cada máquina, então cada computador aponta pro seu próprio
-# arquivo, e o script fica idêntico nos dois lugares.
-#
-# Adicione ao ~/.Renviron de CADA computador (uma linha, sem aspas):
-#   Windows: CAMINHO_SG_DBF=C:/Users/valentim.junior/OneDrive/Área de Trabalho/Vírus Respiratórios/DBF_Vig_Sentinela/SG2026.dbf
-#   Mac:     CAMINHO_SG_DBF=/Users/valentimsalajunior/Documents/DBF_Vig_Sentinela/SG2026.dbf
+# As bases vêm de ~/SG_dados (fora do ~/Work, que vai para o OneDrive):
+# anonimizar_sg.R lê o DBF bruto baixado em ~/SG_entrada, mantém só as
+# colunas de colunas_permitidas.txt e as unidades da 15ª RS, grava
+# sg_ficha_anon_<ano>.rds / sg_agregado_<ano>.rds e apaga o bruto. A pasta
+# pode ser trocada pela variável SG_DADOS (~/.Renviron). Usa o ano mais
+# recente disponível.
 readRenviron("~/.Renviron")
-arquivo_sg <- Sys.getenv("CAMINHO_SG_DBF")
-if (identical(arquivo_sg, "")) {
-  stop("Defina CAMINHO_SG_DBF no seu ~/.Renviron antes de rodar este ",
-       "script (veja o comentario acima para o caminho de cada maquina).")
+dir_sg_dados <- path.expand(Sys.getenv("SG_DADOS", "~/SG_dados"))
+arquivos_ficha <- sort(Sys.glob(file.path(dir_sg_dados, "sg_ficha_anon_*.rds")))
+if (length(arquivos_ficha) == 0) {
+  stop("Nenhuma base em ", dir_sg_dados, " - jogue o DBF da Ficha SG em ",
+       "~/SG_entrada (ou rode Rscript anonimizar_sg.R).")
 }
+arquivo_sg <- tail(arquivos_ficha, 1)
+ano_base   <- as.integer(sub(".*_([0-9]{4})\\.rds$", "\\1", arquivo_sg))
+sg_raw     <- readRDS(arquivo_sg)
+data_exportacao <- attr(sg_raw, "exportado_em")
+message("Ficha SG: ", basename(arquivo_sg), " (exportada em ", format(data_exportacao, "%d/%m/%Y"), ")")
 
-sg_raw <- foreign::read.dbf(arquivo_sg, as.is = TRUE)
+# Ficha de Agregado Semanal (Indicadores 1 e 10) - opcional: sem ela os
+# dois indicadores ficam de fora, como antes.
+arquivo_agregado <- file.path(dir_sg_dados, paste0("sg_agregado_", ano_base, ".rds"))
+agregado_raw <- if (file.exists(arquivo_agregado)) readRDS(arquivo_agregado)
 
 # [Corrigido] O dicionário de dados da Ficha SG descreve os campos de data
 # como "Date DD/MM/AAAA" (formato brasileiro), não o formato ISO
@@ -116,9 +120,14 @@ parse_data_dbf <- function(x) {
 # [Inferência] Ajustar a lista se houver outras unidades sentinelas na região.
 unidades_15rs <- c("6986609", "7023049")
 
-# Período de referência da análise - ajustar conforme necessidade do painel.
-periodo_inicio <- as.Date("2026-01-01")
-periodo_fim    <- as.Date("2026-09-13")
+# Período de referência: da SE 1 do ano da base até o último sábado antes
+# da exportação (última semana epidemiológica completa).
+# [Corrigido] O início era 01/01, que em 2026 ainda é a SE 53 de 2025 - essa
+# semana entrava no denominador "Nº de SE no período" (38 em vez de 37 até
+# a SE 37) e baixava os Indicadores 2 e 4.
+periodo_inicio <- MMWRweek::MMWRweek2Date(ano_base, 1, 1)
+periodo_fim    <- (data_exportacao - 1) - (as.integer(format(data_exportacao - 1, "%u")) - 6) %% 7
+message("Período analisado: ", format(periodo_inicio, "%d/%m/%Y"), " a ", format(periodo_fim, "%d/%m/%Y"))
 
 sg <- sg_raw %>%
   mutate(
@@ -196,12 +205,25 @@ classificar_desempenho <- function(pct) {
 # ..........................................................................................
 
 # Indicador 1 - % de SE com envio de dados agregados
-# [Não implementado] O Caderno (p.16-17) mostra que este indicador já é
-# CALCULADO PELO PRÓPRIO SIVEP-Gripe: menu RELATÓRIOS > INDICADORES > "%
-# DE SEMANAS COM INFORMAÇÃO DE AGREGADO SEMANAL DE ATENDIMENTOS POR SG",
-# exportável direto em Excel. Requer a Ficha de Agregado Semanal, que não
-# está no .dbf de registros individuais. Recomendo puxar esse relatório
-# pronto do sistema em vez de recalcular aqui.
+# [Inferência] O Caderno (p.16-17) mostra que este indicador também sai
+# pronto no SIVEP-Gripe (RELATÓRIOS > INDICADORES > "% DE SEMANAS COM
+# INFORMAÇÃO DE AGREGADO SEMANAL DE ATENDIMENTOS POR SG"). Aqui é
+# recalculado da Ficha de Agregado Semanal: Nº de SE com registro de
+# agregado da unidade / Nº de SE no período, x 100. Uma semana conta como
+# enviada quando existe o registro, mesmo com contagens zeradas. Uso a
+# classificação genérica do Caderno (0 / 1-20 / 21-80 / 81-100%) - não
+# conferi se o Caderno traz faixas próprias para este indicador.
+indicador_1 <- function(agregado, semanas) {
+  agregado %>%
+    filter(SE_ATEND %in% semanas) %>%
+    distinct(COD_UNID, SE_ATEND) %>%
+    count(COD_UNID, name = "se_com_agregado") %>%
+    mutate(
+      se_periodo      = length(semanas),
+      indicador_1_pct = round(100 * se_com_agregado / se_periodo, 1),
+      classificacao   = classificar_desempenho(indicador_1_pct)
+    )
+}
 
 # Indicador 2 - % de SE com coleta de amostras de SG em US
 # [Fórmula oficial - Caderno p.20] Número de SE com envio de amostras /
@@ -410,13 +432,23 @@ indicador_9 <- function(df) {
 # ..........................................................................................
 
 # Indicador 10 - Proporção de casos de SG sobre consultas gerais no período
-# [Não implementado] O Caderno confirma (p.69) que os Indicadores de
-# Resultado (10 a 13) "nada mais são que uma tentativa de trazer parte das
-# análises geradas automaticamente pelo próprio SIVEP-Gripe em seu
-# módulo" - ou seja, o sistema já os calcula. O Indicador 10 em particular
-# precisa do total de CONSULTAS GERAIS da unidade (não só os casos de SG),
-# que vem da Ficha de Agregado Semanal - não está no .dbf de registros
-# individuais.
+# [Inferência] O Caderno (p.69) diz que os Indicadores de Resultado (10 a
+# 13) reproduzem análises que o próprio SIVEP-Gripe já gera. Recalculado
+# aqui da Ficha de Agregado Semanal: atendimentos por SG (SG_TOTAL) /
+# total de consultas gerais (TC_TOTAL) no período, x 100. Como os
+# Indicadores 11-13, descreve a demanda por SG - não tem meta nem
+# classificação de desempenho.
+indicador_10 <- function(agregado, semanas) {
+  agregado %>%
+    filter(SE_ATEND %in% semanas) %>%
+    group_by(COD_UNID) %>%
+    summarise(
+      atendimentos_sg  = sum(SG_TOTAL, na.rm = TRUE),
+      consultas_gerais = sum(TC_TOTAL, na.rm = TRUE),
+      indicador_10_pct = round(100 * atendimentos_sg / consultas_gerais, 1),
+      .groups = "drop"
+    )
+}
 
 # Indicador 11 - Proporção de positividade de vírus testados no período
 # [Inferência] O Caderno não traz fórmula explícita (só conceito), então
@@ -513,6 +545,7 @@ indicador_14 <- function(df) {
 # ..........................................................................................
 
 resultados <- list(
+  indicador_1  = if (!is.null(agregado_raw)) indicador_1(agregado_raw, semanas_periodo),
   indicador_2  = indicador_2(sg, semanas_periodo),
   indicador_3  = indicador_3(sg, semanas_periodo),
   indicador_4  = indicador_4(sg, semanas_periodo),
@@ -521,6 +554,7 @@ resultados <- list(
   indicador_7  = indicador_7(sg),
   indicador_8  = indicador_8(sg),
   indicador_9  = indicador_9(sg),
+  indicador_10 = if (!is.null(agregado_raw)) indicador_10(agregado_raw, semanas_periodo),
   indicador_11 = indicador_11(sg),
   indicadores_12_13 = indicadores_12_13(sg),
   indicador_14 = indicador_14(sg)
@@ -528,6 +562,10 @@ resultados <- list(
 
 dir.create("./dados", recursive = TRUE, showWarnings = FALSE)
 
+if (!is.null(resultados$indicador_1)) {
+  readr::write_csv2(resultados$indicador_1,  "./dados/indicador_01.csv")
+  readr::write_csv2(resultados$indicador_10, "./dados/indicador_10.csv")
+}
 readr::write_csv2(resultados$indicador_2,  "./dados/indicador_02.csv")
 readr::write_csv2(resultados$indicador_3,  "./dados/indicador_03.csv")
 readr::write_csv2(resultados$indicador_4,  "./dados/indicador_04.csv")
@@ -542,7 +580,8 @@ readr::write_csv2(resultados$indicadores_12_13$indicador_13_por_faixa, "./dados/
 readr::write_csv2(resultados$indicador_14, "./dados/indicador_14.csv")
 
 message("Indicadores calculados e exportados em ./dados/")
-message("ATENÇÃO: Indicadores 1 e 10 NÃO foram calculados - dependem da Ficha de Agregado Semanal ou dos relatórios prontos do SIVEP-Gripe (menu RELATÓRIOS > INDICADORES).")
+if (is.null(agregado_raw)) message("ATENÇÃO: Indicadores 1 e 10 NÃO foram calculados - falta ", basename(arquivo_agregado),
+                                   " (jogue o DBF da Ficha de Agregado Semanal em ~/SG_entrada).")
 message("ATENÇÃO: Indicador 5 usa a definição de caso NOVA da NT9 (10 dias), diferente da fórmula literal (desatualizada) do Caderno de Análise (7 dias) - ver comentário no código.")
 
 # ..........................................................................................
@@ -566,7 +605,9 @@ message("ATENÇÃO: Indicador 5 usa a definição de caso NOVA da NT9 (10 dias),
 #   - Indicadores 11/12 (perfil viral): SE_PRISINT (semana de início dos
 #     sintomas), padrão epidemiológico mais comum para curva de vírus.
 #
-# Indicadores 1 e 10: sem gráfico semanal - não implementados (ver seção 4).
+#   - Indicador 10 (agregado semanal): SE_ATEND (semana de atendimento).
+#   - Indicador 1: sem gráfico semanal - em cada semana a unidade enviou
+#     ou não o agregado (o próprio indicador já é a contagem disso).
 
 # Deriva SE (formato "AAAASS") a partir de uma coluna de datas.
 # Usa parse_data_dbf() (definida na Seção 1) para aceitar tanto Date já
@@ -738,6 +779,11 @@ series_semanais <- list(
   indicador_9  = indicador_9_semanal(sg),
   indicador_11 = indicador_11_semanal(sg),
   indicador_14 = indicador_14_semanal(sg),
+  indicador_10 = if (!is.null(agregado_raw)) agregado_raw %>%
+                   filter(SE_ATEND %in% semanas_periodo) %>%
+                   mutate(indicador_10_pct = round(100 * SG_TOTAL / TC_TOTAL, 1),
+                          SE_ATEND = ordenar_se(SE_ATEND)) %>%
+                   arrange(SE_ATEND),
   indicador_12 = resultados$indicadores_12_13$indicador_12_por_SE %>%
                    mutate(SE_PRISINT = ordenar_se(SE_PRISINT)) %>%
                    arrange(SE_PRISINT)
@@ -809,6 +855,22 @@ grafico_indicador_11 <- grafico_pct_semanal(series_semanais$indicador_11, "SE_PR
 
 grafico_indicador_14 <- grafico_pct_semanal(series_semanais$indicador_14, "SE_COLETA", "indicador_14_pct",
                           "Indicador 14 - % de registros com contato com aves/suínos/outro animal preenchido")
+
+# --- Indicador 10: % de atendimentos por SG entre as consultas gerais.
+#     Sem meta (indicador de resultado), por isso não usa grafico_pct_semanal(),
+#     que fixa o eixo em 0-100% e desenha a linha de 80%.
+grafico_indicador_10 <- if (!is.null(series_semanais$indicador_10)) {
+  ggplot(series_semanais$indicador_10,
+         aes(x = SE_ATEND, y = indicador_10_pct, group = COD_UNID, color = COD_UNID)) +
+    geom_line(linewidth = 1) +
+    geom_point(size = 2) +
+    scale_color_manual(values = cores_unidades, name = "Unidade Sentinela") +
+    scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, 0.1))) +
+    labs(title = "Indicador 10 - % de atendimentos por SG entre as consultas gerais",
+         subtitle = "Ficha de Agregado Semanal. Semana de referência = semana de atendimento (SE_ATEND).",
+         x = "Semana epidemiológica", y = "%") +
+    tema_semanal
+}
 
 # --- Indicador 12: circulação viral por semana de início dos sintomas
 #     (gráfico de barras empilhadas por categoria viral, com % de cada
@@ -925,9 +987,12 @@ ggsave("./img/indicador_11_semanal.png", grafico_indicador_11,     width = 10, h
 ggsave("./img/indicador_12_semanal.png", grafico_indicador_12,     width = 10, height = 5, dpi = 150)
 ggsave("./img/indicador_13_faixa.png",   grafico_indicador_13,     width = 10, height = 6, dpi = 150)
 ggsave("./img/indicador_14_semanal.png", grafico_indicador_14,     width = 10, height = 5, dpi = 150)
+if (!is.null(grafico_indicador_10)) {
+  ggsave("./img/indicador_10_semanal.png", grafico_indicador_10, width = 10, height = 5, dpi = 150)
+}
 
 message("Gráficos salvos em ./img/ (9 gráficos semanais + 1 por faixa etária).")
-message("Indicadores 1, 2, 3, 4 e 10 sem gráfico semanal de %: 1 e 10 não implementados; 2/3/4 são medidas de período (não semanais por definição) - o gráfico 'amostras_semanais.png' mostra a série bruta que os alimenta.")
+message("Indicadores 1, 2, 3 e 4 sem gráfico semanal de %: são medidas de período (não semanais por definição) - o gráfico 'amostras_semanais.png' mostra a série bruta que alimenta 2/3/4.")
 
 # ..........................................................................................
 #         ---- 8. CIRCULAÇÃO VIRAL - SOMENTE VÍRUS EFETIVAMENTE ENCONTRADOS ----
@@ -997,9 +1062,8 @@ virus_positivos_longo <- function(df) {
   # clássico de nome de campo do DBF (10). Deu erro "objeto não
   # encontrado" porque o nome real da coluna no seu .dbf provavelmente
   # está truncado de outra forma. Uso campo_seguro() para não travar o
-  # script; se o aviso aparecer, rode names(sg_raw) e me diga o nome
-  # real para eu trocar aqui.
-  pos_ifi_flu <- campo_seguro(df, c("POS_IFI_FLU"))
+  # script. No export do Sivep-Gripe o nome real é "POSIFI_FLU".
+  pos_ifi_flu <- campo_seguro(df, c("POSIFI_FLU", "POS_IFI_FLU"))
   if_para4    <- campo_seguro(df, c("IF_PARA4", "IFI_PARA4"))
 
   df %>%
@@ -1252,7 +1316,15 @@ nomes_unidades_gauge <- c(
   "7023049" = "UPA Sarandi (Sarandi)"
 )
 
-# --- Bloco INDICADORES DE PROCESSO (2, 3, 4) ---
+# --- Bloco INDICADORES DE PROCESSO (1, 2, 3, 4) ---
+
+if (!is.null(resultados$indicador_1)) {
+  gauge_indicador_01 <- grafico_gauge_indicador(
+    resultados$indicador_1, "indicador_1_pct",
+    "Indicador 1 - % de SE com envio do agregado semanal"
+  )
+  ggsave("./img/gauge_indicador_01.png", gauge_indicador_01, width = 7, height = 4.5, dpi = 150)
+}
 
 gauge_indicador_02 <- grafico_gauge_indicador(
   resultados$indicador_2, "indicador_2_pct",
@@ -1315,4 +1387,4 @@ gauge_indicador_09 <- grafico_gauge_indicador(
 )
 ggsave("./img/gauge_indicador_09.png", gauge_indicador_09, width = 7, height = 4.5, dpi = 150)
 
-message("Gauges de Processo (2,3,4) e Qualidade (5-9) salvos em ./img/gauge_indicador_XX.png")
+message("Gauges de Processo (1,2,3,4) e Qualidade (5-9) salvos em ./img/gauge_indicador_XX.png")

@@ -1,12 +1,10 @@
 #!/bin/bash
 # Publica o painel de indicadores SG no GitHub Pages.
-# Uso: rode este script a partir da raiz do repositório (mesma pasta
-# deste arquivo), depois de já ter atualizado o SG2026.dbf localmente.
-#
-# [Inferência] Assume Git Bash (vem com o Git para Windows) ou um
-# terminal Unix-like. Se preferir rodar no PowerShell/cmd, os mesmos 3
-# passos (Rscript, quarto render, git push) podem ser feitos à mão.
+# Normalmente roda sozinho via processar_entrada.sh, quando um DBF novo
+# chega em ~/SG_entrada. Rodar à mão: ./publicar.sh (usa as bases já
+# anonimizadas em ~/SG_dados).
 
+cd "$(dirname "${BASH_SOURCE[0]}")"
 set -e  # para o script se algum passo falhar, em vez de seguir com dado incompleto
 
 echo ">>> 1/3 - Calculando indicadores (script_indicadores_sg.R)..."

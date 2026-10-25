@@ -1,0 +1,97 @@
+# Colunas da Ficha SG (Sivep-Gripe, registro individual) que saem do DBF bruto
+# para a base anonimizada em ~/SG_dados. Uma por linha; "#" inicia comentário.
+# Nunca inclua identificadores diretos (nome, CPF, CNS, nome da mãe, endereço,
+# telefone, data de nascimento, nº do registro, texto livre): a lista PROIBIDAS
+# do anonimizar_sg.R barra os principais e o script aborta se algum aparecer.
+
+# Unidade e notificação
+COD_UF
+COD_MUNIC
+COD_UNID
+DT_PREENC
+DT_DIGITA
+
+# Paciente (sem identificação: idade em vez de data de nascimento)
+SEXO
+IDADE
+TP_IDADE
+COD_IDADE
+GESTANTE
+PUERPERA
+RACA
+ESCOLARID
+COD_UFRES
+COD_MUNRES
+ZONA
+
+# Sintomas
+DT_PRISINT
+SE_PRISINT
+FEBRE
+TOSSE
+DOR_GARGAN
+OUT_SINT
+
+# Fatores de risco
+SIND_DOWN
+DIABETES
+IMUNODEPRE
+CARDIOVASC
+HEPATICA
+NEUROLOGIC
+RENAL
+PNEUMOPAT
+OBESIDADE
+HEMATOLOGI
+ASMA
+TABAG
+PAC_AVESU
+
+# Vacina e antiviral
+VACINA
+DT_VACINA
+VACINA_COV
+ANTIVIRAL
+DT_ANTIVIR
+
+# Amostra e laboratório
+DT_COLETA
+SE_COLETA
+TP_AMOSTRA
+IFI_RESUL
+IFI_DATA
+POSIFI_FLU
+IFI_FLU
+POSIFI_OUT
+IFI_VRS
+IFI_PARA1
+IFI_PARA2
+IFI_PARA3
+IFI_PARA4
+IFI_ADENO
+IFI_SARS2
+IFI_OUTRO
+PCR_RESUL
+PCR_DATA
+POS_PCRFLU
+PCR_FLU
+FLUA_SUBT
+PCR_FLUBLI
+POS_PCROUT
+PCR_VRS
+PCR_PARA1
+PCR_PARA2
+PCR_PARA3
+PCR_PARA4
+PCR_ADENO
+PCR_METAP
+PCR_BOCA
+PCR_RINO
+PCR_SARS2
+PCR_OUTRO
+
+# Encerramento
+CLASSI_FIN
+FIN_FLU
+FIN_SUBT
+DT_ENCERRA
