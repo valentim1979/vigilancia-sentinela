@@ -19,6 +19,7 @@ Os dados vêm de duas fichas do SIVEP-Gripe, exportadas em formato DBF: a Ficha 
 
 - **[Indicadores (NT9)](indicadores.qmd)** — os 14 indicadores, organizados por Processo, Qualidade, Resultado e Indicador Estadual.
 - **[Circulação viral](circulacao-viral.qmd)** — distribuição dos vírus respiratórios identificados, por semana epidemiológica e por faixa etária.
+- **[Clima e casos](clima-casos.qmd)** — proporção de atendimentos por SG (Ficha de Agregado Semanal) cruzada com temperatura, umidade, chuva e qualidade do ar (Open-Meteo), por semana epidemiológica.
 
 ## Unidades sentinelas cobertas
 

@@ -16,6 +16,8 @@ website:
         text: Indicadores (NT9)
       - href: circulacao-viral.qmd
         text: Circulação viral
+      - href: clima-casos.qmd
+        text: Clima e casos
     right:
       - icon: github
         href: https://github.com/valentim1979/vigilancia-sentinela

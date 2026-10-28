@@ -10,6 +10,11 @@ set -e  # para o script se algum passo falhar, em vez de seguir com dado incompl
 echo ">>> 1/3 - Calculando indicadores (script_indicadores_sg.R)..."
 Rscript script_indicadores_sg.R
 
+# Página "Clima e casos": precisa de internet (API Open-Meteo). Se falhar,
+# publica o resto com a versão anterior da página, em vez de travar tudo.
+echo ">>> 1b/3 - Clima x casos (script_clima_casos.R)..."
+Rscript script_clima_casos.R || echo "AVISO: script_clima_casos.R falhou - página Clima e casos não foi atualizada."
+
 echo ">>> 2/3 - Renderizando o site Quarto..."
 quarto render
 

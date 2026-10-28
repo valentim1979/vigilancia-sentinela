@@ -1,5 +1,68 @@
 [
   {
+    "objectID": "clima-casos.html",
+    "href": "clima-casos.html",
+    "title": "Clima e casos",
+    "section": "",
+    "text": "Painel atualizado em 28/10/2026 · Período analisado: SE 1 a SE 37 de 2026 (04/01/2026 a 19/09/2026) · Ficha SG exportada do SIVEP-Gripe em 24/09/2026 · Agregado semanal exportado em 28/10/2026\nEsta página cruza a proporção de atendimentos por Síndrome Gripal nas unidades sentinelas com o clima e a qualidade do ar de cada semana epidemiológica, no município da unidade."
+  },
+  {
+    "objectID": "clima-casos.html#fontes-e-método",
+    "href": "clima-casos.html#fontes-e-método",
+    "title": "Clima e casos",
+    "section": "Fontes e método",
+    "text": "Fontes e método\n\nCasos: Ficha de Agregado Semanal do Sivep-Gripe — atendimentos por SG (SG_TOTAL) divididos pelo total de atendimentos da unidade (TC_TOTAL), por semana epidemiológica.\nClima: Open-Meteo — Historical Weather API (dados de modelo/reanálise, não de estação meteorológica), diário, resumido por SE.\nQualidade do ar: Open-Meteo — Air Quality API, baseada na previsão global CAMS (grade de cerca de 45 km). Valores horários resumidos por dia e depois por SE. Como Maringá e Sarandi estão na mesma célula da grade, os valores de qualidade do ar são iguais para as duas unidades.\nCorrelação: Spearman, entre a % de SG da semana e cada variável na mesma semana e de 1 a 3 semanas antes (defasagem).\n\nDados do Open-Meteo sob licença CC-BY 4.0."
+  },
+  {
+    "objectID": "clima-casos.html#séries-semanais",
+    "href": "clima-casos.html#séries-semanais",
+    "title": "Clima e casos",
+    "section": "Séries semanais",
+    "text": "Séries semanais"
+  },
+  {
+    "objectID": "clima-casos.html#correlação-entre-de-sg-e-clima",
+    "href": "clima-casos.html#correlação-entre-de-sg-e-clima",
+    "title": "Clima e casos",
+    "section": "Correlação entre % de SG e clima",
+    "text": "Correlação entre % de SG e clima\nValores de rho de Spearman: de −1 (quando a variável sobe, a % de SG cai) a +1 (sobem juntos); perto de 0, sem relação. Em negrito, correlações com p &lt; 0,05.\n\n\n\n\n\n\n\n\n\nMesma semana\n1 semana antes\n2 semanas antes\n3 semanas antes\n\n\n\n\nUPA Sarandi\n\n\nTemperatura média (°C)\n−0,85\n−0,90\n−0,82\n−0,81\n\n\nTemperatura mínima da semana (°C)\n−0,76\n−0,79\n−0,80\n−0,74\n\n\nTemperatura máxima da semana (°C)\n−0,74\n−0,75\n−0,73\n−0,64\n\n\nAmplitude térmica média (°C)\n−0,38\n−0,40\n−0,33\n−0,36\n\n\nUmidade relativa média (%)\n0,41\n0,48\n0,42\n0,42\n\n\nUmidade relativa mínima (%)\n0,47\n0,45\n0,44\n0,28\n\n\nPrecipitação na semana (mm)\n−0,14\n0,00\n0,01\n0,09\n\n\nMP2,5 médio (µg/m³)\n0,10\n0,13\n−0,09\n−0,17\n\n\nMP10 médio (µg/m³)\n0,10\n0,13\n−0,09\n−0,17\n\n\nOzônio médio (µg/m³)\n−0,63\n−0,71\n−0,61\n−0,68\n\n\nNO₂ médio (µg/m³)\n−0,02\n0,12\n−0,11\n−0,13\n\n\nCO médio (µg/m³)\n0,59\n0,61\n0,51\n0,49\n\n\nPior IQA (padrão EUA) da semana\n−0,14\n−0,09\n−0,33\n−0,34\n\n\nUPA Zona Sul - Maringá\n\n\nTemperatura média (°C)\n−0,80\n−0,71\n−0,74\n−0,63\n\n\nTemperatura mínima da semana (°C)\n−0,73\n−0,68\n−0,67\n−0,56\n\n\nTemperatura máxima da semana (°C)\n−0,66\n−0,61\n−0,70\n−0,53\n\n\nAmplitude térmica média (°C)\n−0,36\n−0,17\n−0,31\n−0,27\n\n\nUmidade relativa média (%)\n0,38\n0,30\n0,41\n0,39\n\n\nUmidade relativa mínima (%)\n0,37\n0,27\n0,40\n0,26\n\n\nPrecipitação na semana (mm)\n−0,04\n−0,16\n−0,04\n0,01\n\n\nMP2,5 médio (µg/m³)\n−0,04\n−0,00\n−0,22\n−0,09\n\n\nMP10 médio (µg/m³)\n−0,03\n0,00\n−0,23\n−0,10\n\n\nOzônio médio (µg/m³)\n−0,66\n−0,56\n−0,70\n−0,57\n\n\nNO₂ médio (µg/m³)\n0,03\n0,07\n−0,11\n0,09\n\n\nCO médio (µg/m³)\n0,41\n0,42\n0,34\n0,42\n\n\nPior IQA (padrão EUA) da semana\n−0,28\n−0,19\n−0,39\n−0,32"
+  },
+  {
+    "objectID": "clima-casos.html#últimas-semanas",
+    "href": "clima-casos.html#últimas-semanas",
+    "title": "Clima e casos",
+    "section": "Últimas semanas",
+    "text": "Últimas semanas\n\n\n\n\n\n\n\n\nSE\nInício da SE\nAtendimentos SG\nTotal de atendimentos\n% SG\nTemp. média (°C)\nUmidade média (%)\nChuva (mm)\nMP2,5 (µg/m³)\n\n\n\n\nUPA Sarandi\n\n\n40/2026\n04/10/2026\n107\n1855\n5,8\n21,5\n83,4\n73,1\n18,2\n\n\n39/2026\n27/09/2026\n135\n1980\n6,8\n23,9\n76,6\n38,3\n18,7\n\n\n38/2026\n20/09/2026\n198\n1826\n10,8\n21,8\n76,7\n46,5\n15,9\n\n\n37/2026\n13/09/2026\n132\n1718\n7,7\n18,4\n79,9\n54,2\n16,1\n\n\n36/2026\n06/09/2026\n138\n1838\n7,5\n19,3\n79,9\n70,6\n11,0\n\n\n35/2026\n30/08/2026\n128\n1929\n6,6\n22,7\n67,9\n63,1\n18,2\n\n\nUPA Zona Sul - Maringá\n\n\n41/2026\n11/10/2026\n258\n2688\n9,6\n20,6\n83,9\n64,9\n20,8\n\n\n40/2026\n04/10/2026\n286\n2240\n12,8\n21,6\n84,0\n87,4\n18,2\n\n\n39/2026\n27/09/2026\n285\n2578\n11,1\n24,0\n77,0\n27,1\n18,7\n\n\n38/2026\n20/09/2026\n293\n2276\n12,9\n21,9\n77,4\n43,8\n15,9\n\n\n37/2026\n13/09/2026\n281\n2619\n10,7\n18,4\n80,9\n58,9\n16,1\n\n\n36/2026\n06/09/2026\n288\n2280\n12,6\n19,3\n80,4\n74,3\n11,0\n\n\n\n\n\n\n\nTabelas completas para download: casos e clima por SE · clima diário por município · correlações com valor de p (CSV separado por ;)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
+    "section": "",
+    "text": "Painel atualizado em 28/10/2026 · Período analisado: SE 1 a SE 37 de 2026 (04/01/2026 a 19/09/2026) · Ficha SG exportada do SIVEP-Gripe em 24/09/2026 · Agregado semanal exportado em 28/10/2026"
+  },
+  {
+    "objectID": "index.html#sobre-este-painel",
+    "href": "index.html#sobre-este-painel",
+    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
+    "section": "Sobre este painel",
+    "text": "Sobre este painel\nEste painel acompanha os indicadores de desempenho da Vigilância Sentinela de Síndrome Gripal (SG) nas unidades sentinelas da 15ª Regional de Saúde de Maringá/PR, conforme definido pela Nota Técnica nº 9, de 27/11/2025 (atualizada em 15/09/2026, SESA-PR).\nOs dados vêm de duas fichas do SIVEP-Gripe, exportadas em formato DBF: a Ficha de Registro Individual de casos de SG que realizaram coleta de amostra e a Ficha de Agregado Semanal (atendimentos por SG e consultas gerais de cada unidade, por semana).\n\nSobre a fonte dos dados: a Nota Técnica nº 9 nomeia 13 dos 14 indicadores, mas remete a fórmula de cálculo detalhada ao Caderno de Análise - Indicadores de Desempenho e Resultado das Unidades Sentinelas da Vigilância da Síndrome Gripal no Brasil (CGCOVID/DEDT/SVSA/MS). Os Indicadores 1 e 10 são calculados a partir da Ficha de Agregado Semanal; os demais, da Ficha individual."
+  },
+  {
+    "objectID": "index.html#páginas",
+    "href": "index.html#páginas",
+    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
+    "section": "Páginas",
+    "text": "Páginas\n\nIndicadores (NT9) — os 14 indicadores, organizados por Processo, Qualidade, Resultado e Indicador Estadual.\nCirculação viral — distribuição dos vírus respiratórios identificados, por semana epidemiológica e por faixa etária.\nClima e casos — proporção de atendimentos por SG (Ficha de Agregado Semanal) cruzada com temperatura, umidade, chuva e qualidade do ar (Open-Meteo), por semana epidemiológica."
+  },
+  {
+    "objectID": "index.html#unidades-sentinelas-cobertas",
+    "href": "index.html#unidades-sentinelas-cobertas",
+    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
+    "section": "Unidades sentinelas cobertas",
+    "text": "Unidades sentinelas cobertas\n\n\n\nUnidade\nMunicípio\nCNES\n\n\n\n\nUPA Zona Sul\nMaringá\n6986609\n\n\nUnidade de Pronto Atendimento\nSarandi\n7023049"
+  },
+  {
     "objectID": "indicadores.html",
     "href": "indicadores.html",
     "title": "Indicadores da NT nº 9/2025-2026",
@@ -131,33 +194,5 @@
     "title": "Circulação viral",
     "section": "Só vírus identificados — por faixa etária",
     "text": "Só vírus identificados — por faixa etária"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
-    "section": "",
-    "text": "Painel atualizado em 28/10/2026 · Período analisado: SE 1 a SE 37 de 2026 (04/01/2026 a 19/09/2026) · Ficha SG exportada do SIVEP-Gripe em 24/09/2026 · Agregado semanal exportado em 28/10/2026"
-  },
-  {
-    "objectID": "index.html#sobre-este-painel",
-    "href": "index.html#sobre-este-painel",
-    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
-    "section": "Sobre este painel",
-    "text": "Sobre este painel\nEste painel acompanha os indicadores de desempenho da Vigilância Sentinela de Síndrome Gripal (SG) nas unidades sentinelas da 15ª Regional de Saúde de Maringá/PR, conforme definido pela Nota Técnica nº 9, de 27/11/2025 (atualizada em 15/09/2026, SESA-PR).\nOs dados vêm de duas fichas do SIVEP-Gripe, exportadas em formato DBF: a Ficha de Registro Individual de casos de SG que realizaram coleta de amostra e a Ficha de Agregado Semanal (atendimentos por SG e consultas gerais de cada unidade, por semana).\n\nSobre a fonte dos dados: a Nota Técnica nº 9 nomeia 13 dos 14 indicadores, mas remete a fórmula de cálculo detalhada ao Caderno de Análise - Indicadores de Desempenho e Resultado das Unidades Sentinelas da Vigilância da Síndrome Gripal no Brasil (CGCOVID/DEDT/SVSA/MS). Os Indicadores 1 e 10 são calculados a partir da Ficha de Agregado Semanal; os demais, da Ficha individual."
-  },
-  {
-    "objectID": "index.html#páginas",
-    "href": "index.html#páginas",
-    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
-    "section": "Páginas",
-    "text": "Páginas\n\nIndicadores (NT9) — os 14 indicadores, organizados por Processo, Qualidade, Resultado e Indicador Estadual.\nCirculação viral — distribuição dos vírus respiratórios identificados, por semana epidemiológica e por faixa etária."
-  },
-  {
-    "objectID": "index.html#unidades-sentinelas-cobertas",
-    "href": "index.html#unidades-sentinelas-cobertas",
-    "title": "Vigilância Sentinela de Síndrome Gripal — 15ª RS",
-    "section": "Unidades sentinelas cobertas",
-    "text": "Unidades sentinelas cobertas\n\n\n\nUnidade\nMunicípio\nCNES\n\n\n\n\nUPA Zona Sul\nMaringá\n6986609\n\n\nUnidade de Pronto Atendimento\nSarandi\n7023049"
   }
 ]
